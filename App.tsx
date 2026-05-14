@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Stats from './components/Stats';
 import Skills from './components/Skills';
 import CareerTimeline from './components/CareerTimeline';
 import Contact from './components/Contact';
@@ -13,8 +12,6 @@ const App: React.FC = () => {
     <div className="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark">
       <Navbar />
       <main className="flex-grow flex flex-col w-full">
-         
-
         <section id="about">
           <Hero />
         </section>

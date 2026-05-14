@@ -62,8 +62,8 @@ const Contact: React.FC = () => {
                     <label className="flex flex-col flex-1 gap-2">
                         <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Subject</span>
                         <div className="relative">
-                            <select className="w-full appearance-none rounded-lg border-slate-300 dark:border-[#3b4754] bg-slate-50 dark:bg-[#1c2127] text-slate-900 dark:text-white h-12 px-4 pr-10 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm">
-                                <option className="text-slate-400" disabled selected value="">Select a topic</option>
+                            <select defaultValue="" className="w-full appearance-none rounded-lg border-slate-300 dark:border-[#3b4754] bg-slate-50 dark:bg-[#1c2127] text-slate-900 dark:text-white h-12 px-4 pr-10 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm">
+                                <option className="text-slate-400" disabled value="">Select a topic</option>
                                 <option value="opportunity">Job Opportunity</option>
                                 <option value="freelance">Freelance Project</option>
                                 <option value="bug">Report a Bug</option>

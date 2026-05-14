@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Experience: React.FC = () => {
   return (
@@ -13,23 +12,13 @@ const Experience: React.FC = () => {
           </div>
           <div className="flex flex-col items-center leading-none mb-6">
             <h1 className="text-[120px] sm:text-[160px] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-gray-800 to-gray-400 dark:from-white dark:to-gray-600">
-              1+
+              2
             </h1>
             <span className="text-2xl sm:text-3xl font-bold text-gray-500 dark:text-gray-400 -mt-4 sm:-mt-8">Years of Experience</span>
           </div>
           <h2 className="max-w-2xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
             Ensuring software reliability through rigorous <span className="text-primary font-semibold">Manual & Automated Testing</span>. I break code so you don't have to.
           </h2>
-          {/* <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/experience" className="flex min-w-[140px] items-center justify-center gap-2 rounded-lg bg-primary h-12 px-6 text-white text-base font-bold shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all">
-              <span>View Projects</span>
-              <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-            </Link>
-            <Link to="/contact" className="flex min-w-[140px] items-center justify-center gap-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-card-dark h-12 px-6 text-gray-900 dark:text-white text-base font-bold hover:bg-gray-50 dark:hover:bg-[#283039] transition-all">
-              <span>Contact Me</span>
-              <span className="material-symbols-outlined text-[20px]">mail</span>
-            </Link>
-          </div> */}
         </div>
       </section>
 

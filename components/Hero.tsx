@@ -35,12 +35,12 @@ const Hero: React.FC = () => {
             </h2>
 
             <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Quality Assurance Tester with over 2 years of experience in manual
-              testing for microservice-based systems. Skilled in requirement
-              analysis, test case design, execution, and defect tracking, with
-              hands-on API testing using Postman and Mockoon. Experienced in
-              database verification (MySQL, PostgreSQL) and basic performance
-              testing with JMeter.
+              Quality Assurance Tester with nearly 2 years of experience in
+              manual testing for microservice-based systems. Skilled in
+              requirement analysis, test case design, execution, and defect
+              tracking, with hands-on API testing using Postman and Mockoon.
+              Experienced in database verification (MySQL, PostgreSQL) and
+              basic performance testing with JMeter.
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-4">
@@ -124,23 +124,6 @@ const Hero: React.FC = () => {
                 </div>
               </div>
 
-              {/* Success Rate Card */}
-              <div className="absolute -bottom-4 right-0 md:bottom-10 md:-left-10 z-20 bg-background-dark/90 backdrop-blur border border-slate-700/60 p-4 rounded-xl shadow-2xl max-w-[180px] animate-bounce-subtle">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="bg-green-500/20 p-2 rounded-lg text-green-500">
-                    <span className="material-symbols-outlined text-xl">
-                      verified
-                    </span>
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-400">Success Rate</p>
-                    <p className="text-lg font-bold text-white">99.8%</p>
-                  </div>
-                </div>
-                <div className="w-full bg-slate-700 h-1.5 rounded-full overflow-hidden">
-                  <div className="bg-green-500 h-full w-[99.8%]"></div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
