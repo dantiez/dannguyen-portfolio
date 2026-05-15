@@ -1,41 +1,67 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Returns the id of the section currently in view. Uses IntersectionObserver
- * with a viewport top-band so a section becomes "active" as it crosses the
- * upper portion of the screen (matches navbar UX expectations).
+ * Returns the id of the section currently in view.
  *
- * Skips work when the user prefers reduced motion is irrelevant — the
- * observer itself is cheap and only fires on intersection changes.
+ * Uses scroll position + `getBoundingClientRect()` rather than
+ * IntersectionObserver because tall sections (e.g. CareerTimeline with
+ * 5 entries) suffered an unfair `intersectionRatio` penalty against
+ * shorter neighbors, so the wrong nav item would stay highlighted.
+ *
+ * Strategy: walk `sectionIds` in document order; pick the LAST section
+ * whose top has crossed the trigger line (default 25% of viewport).
+ * This produces snappy "top-detection" UX — the highlight changes the
+ * moment a section's top scrolls into the upper quarter, matching
+ * GitHub docs / Stripe docs sidebar behaviour.
+ *
+ * Throttled with `requestAnimationFrame` so the listener stays passive.
  */
+const TRIGGER_VIEWPORT_FRACTION = 0.25;
+
 export function useScrollSpy(sectionIds: string[]): string | null {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   useEffect(() => {
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
+    if (sectionIds.length === 0) return;
 
-    if (elements.length === 0) return;
+    const compute = () => {
+      const triggerY = window.innerHeight * TRIGGER_VIEWPORT_FRACTION;
+      let candidate: string | null = null;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible.length > 0) {
-          setActiveId(visible[0].target.id);
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top <= triggerY) {
+          candidate = id; // last section past trigger wins
+        } else {
+          // Sections are in document order; once we pass the trigger,
+          // every later section is further down → safe to bail.
+          break;
         }
-      },
-      {
-        // Trigger when section's middle area enters the upper 60% of viewport.
-        rootMargin: '-20% 0px -40% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-      },
-    );
+      }
 
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+      setActiveId((prev) => (prev === candidate ? prev : candidate));
+    };
+
+    let rafId = 0;
+    const schedule = () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = 0;
+        compute();
+      });
+    };
+
+    compute();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+
+    return () => {
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, [sectionIds]);
 
   return activeId;
