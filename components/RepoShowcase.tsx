@@ -33,10 +33,10 @@ const REPOS_STATIC: RepoStaticEntry[] = [
   },
   {
     key: 'portfolio',
-    name: 'qc-danmap',
+    name: 'dannguyen-portfolio',
     language: 'TypeScript',
     langColor: 'bg-blue-400',
-    url: 'https://github.com/dantiez/qc-danmap',
+    url: 'https://github.com/dantiez/dannguyen-portfolio',
   },
   {
     key: 'apiCollections',
