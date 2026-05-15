@@ -82,6 +82,7 @@ const Navbar: React.FC = () => {
             </nav>
 
             <div className="md:hidden flex items-center gap-2">
+              <LocaleSwitcher />
               <ThemeToggle />
               <button
                 type="button"

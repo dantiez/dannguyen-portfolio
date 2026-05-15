@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import type { NavSectionId } from '../lib/nav-items';
 import { useTranslation } from '../lib/i18n/use-translation';
-import LocaleSwitcher from './LocaleSwitcher';
-import ThemeToggle from './ThemeToggle';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -117,15 +115,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, items, activeI
               </button>
             );
           })}
-          <div className="mt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-700 pt-4">
-            <LocaleSwitcher />
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                {t.a11y.appearance}
-              </span>
-              <ThemeToggle />
-            </div>
-          </div>
         </nav>
       </div>
     </div>
