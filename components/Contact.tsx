@@ -346,12 +346,9 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
               )}
-              {isOffline && (
-                <div className="flex items-start gap-2 text-sm text-amber-600 dark:text-amber-400">
-                  <AlertCircle size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
-                  <p className="text-xs">{f.offlineNote}</p>
-                </div>
-              )}
+              {/* Offline state intentionally shows no inline warning — the mailto
+                  button itself already communicates the path. Showing a "form
+                  delivery not configured" notice would leak amateur signal. */}
             </div>
 
             <div className="flex items-center gap-2 justify-center sm:justify-start pt-2">

@@ -17,6 +17,7 @@
     "test:coverage": "vitest run --coverage",
     "images:optimize": "node scripts/optimize-images.mjs",
     "og:generate": "node scripts/generate-og-image.mjs",
+    "favicon:build": "node scripts/generate-apple-touch-icon.mjs",
     "cv:build": "node scripts/build-cv.mjs"
   },
   "dependencies": {
