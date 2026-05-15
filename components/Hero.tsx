@@ -42,8 +42,8 @@ const Hero: React.FC = () => {
               DAN NGUYEN TIEN
             </h1>
 
-            <h2 className="text-xl md:text-2xl font-medium text-slate-500 dark:text-slate-400 flex flex-col md:flex-row items-center lg:items-start gap-2 justify-center lg:justify-start">
-              <span className="text-accent-ai font-mono font-semibold tracking-tight">
+            <h2 className="text-base sm:text-xl md:text-2xl font-medium text-slate-500 dark:text-slate-400 flex flex-col md:flex-row items-center lg:items-start gap-2 justify-center lg:justify-start">
+              <span className="text-accent-ai font-mono font-semibold tracking-tight break-all sm:break-normal">
                 {hero.role}
               </span>
               <span
