@@ -10,7 +10,7 @@ describe('App', () => {
 
   it('renders main landmark with all section anchors', () => {
     const { container } = render(<App />);
-    const ids = ['about', 'experience', 'careertimeline', 'skills', 'contact'];
+    const ids = ['about', 'achievements', 'careertimeline', 'skills', 'contact'];
     ids.forEach((id) => {
       expect(container.querySelector(`#${id}`)).not.toBeNull();
     });

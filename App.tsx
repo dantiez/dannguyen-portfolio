@@ -1,11 +1,11 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Skills from './components/Skills';
+import Achievements from './components/Achievements';
 import CareerTimeline from './components/CareerTimeline';
+import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Experience from './components/Experience';
 
 const App: React.FC = () => {
   return (
@@ -16,18 +16,18 @@ const App: React.FC = () => {
           <Hero />
         </section>
 
-        <section id="experience">
-          <Experience />
+        <section id="achievements">
+          <Achievements />
         </section>
-        
+
         <section id="careertimeline">
           <CareerTimeline />
         </section>
-        
+
         <section id="skills">
           <Skills />
         </section>
-        
+
         <section id="contact">
           <Contact />
         </section>
