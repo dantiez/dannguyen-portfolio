@@ -63,7 +63,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, items, activeI
         className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
       />
 
-      <div className="absolute top-0 inset-x-0 bg-white dark:bg-background-dark border-b border-slate-200 dark:border-[#283039] shadow-xl animate-fade-in-up">
+      <div className="absolute top-0 inset-x-0 bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 shadow-xl animate-fade-in-up">
         <h2 id="mobile-menu-heading" className="sr-only">
           {t.a11y.siteNav}
         </h2>

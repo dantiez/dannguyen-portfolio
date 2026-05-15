@@ -37,7 +37,7 @@ const CareerTimeline: React.FC = () => {
   const tl = t.careerTimeline;
 
   return (
-    <div className="w-full bg-slate-50 dark:bg-[#151a21] py-20 border-y border-slate-200 dark:border-[#283039]">
+    <div className="w-full bg-slate-50 dark:bg-background-dark py-20 border-y border-slate-200 dark:border-slate-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader title={tl.title} subtitle={tl.subtitle} />
 
@@ -93,14 +93,14 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
     : 'bg-white dark:bg-card-dark text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700';
 
   const cardClasses = isCurrent
-    ? 'bg-white dark:bg-surface-dark border-primary/30 shadow-[0_0_20px_rgba(19,127,236,0.05)]'
+    ? 'bg-white dark:bg-surface-dark border-primary/30 '
     : 'bg-white dark:bg-card-dark border-slate-200 dark:border-slate-700/50 hover:border-slate-300 dark:hover:border-slate-600';
 
   return (
     <div className="grid grid-cols-[48px_1fr] gap-x-4 sm:gap-x-6 group">
       <div className="flex flex-col items-center pt-2">
         <div
-          className={`flex h-12 w-12 items-center justify-center rounded-full ring-4 ring-slate-50 dark:ring-[#151a21] z-10 border transition-all duration-300 ${nodeClasses}`}
+          className={`flex h-12 w-12 items-center justify-center rounded-full ring-4 ring-slate-50 dark:ring-background-dark z-10 border transition-all duration-300 ${nodeClasses}`}
         >
           <Icon size={22} aria-hidden="true" />
         </div>

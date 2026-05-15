@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           scrolled
-            ? 'border-b border-slate-200 dark:border-[#283039] bg-white/90 dark:bg-background-dark/90 backdrop-blur-md shadow-lg'
+            ? 'border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md shadow-lg'
             : 'bg-transparent border-b border-transparent'
         }`}
       >

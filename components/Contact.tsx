@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className="w-full bg-white dark:bg-[#151a21] rounded-2xl shadow-xl border border-slate-200 dark:border-[#2a3441] p-6 sm:p-8 relative overflow-hidden h-fit">
+        <div className="w-full bg-white dark:bg-background-dark rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 relative overflow-hidden h-fit">
           <div
             aria-hidden="true"
             className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-blue-400 to-primary"
@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
                   {f.nameLabel} <span className="text-red-500">{f.required}</span>
                 </span>
                 <input
-                  className="w-full rounded-lg border-slate-300 dark:border-[#3b4754] bg-slate-50 dark:bg-[#1c2127] text-slate-900 dark:text-white h-12 px-4 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm"
+                  className="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white h-12 px-4 placeholder:text-slate-400 dark:placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm"
                   placeholder={f.namePlaceholder}
                   required
                   type="text"
@@ -124,7 +124,7 @@ const Contact: React.FC = () => {
                 </span>
                 <div className="relative">
                   <input
-                    className="w-full rounded-lg border-slate-300 dark:border-[#3b4754] bg-slate-50 dark:bg-[#1c2127] text-slate-900 dark:text-white h-12 pl-10 pr-4 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
+                    className="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white h-12 pl-10 pr-4 placeholder:text-slate-400 dark:placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
                     placeholder={f.emailPlaceholder}
                     required
                     type="email"
@@ -132,7 +132,7 @@ const Contact: React.FC = () => {
                   <AtSign
                     size={18}
                     aria-hidden="true"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-[#9dabb9] peer-focus:text-primary transition-colors"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-400 peer-focus:text-primary transition-colors"
                   />
                 </div>
               </label>
@@ -145,7 +145,7 @@ const Contact: React.FC = () => {
               <div className="relative">
                 <select
                   defaultValue=""
-                  className="w-full appearance-none rounded-lg border-slate-300 dark:border-[#3b4754] bg-slate-50 dark:bg-[#1c2127] text-slate-900 dark:text-white h-12 px-4 pr-10 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm"
+                  className="w-full appearance-none rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white h-12 px-4 pr-10 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm"
                 >
                   <option className="text-slate-400" disabled value="">
                     {f.subjectPlaceholder}
@@ -173,7 +173,7 @@ const Contact: React.FC = () => {
                 </span>
               </div>
               <textarea
-                className="w-full rounded-lg border-slate-300 dark:border-[#3b4754] bg-slate-50 dark:bg-[#1c2127] text-slate-900 dark:text-white min-h-[160px] p-4 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm resize-y"
+                className="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white min-h-[160px] p-4 placeholder:text-slate-400 dark:placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm resize-y"
                 placeholder={f.messagePlaceholder}
                 required
                 maxLength={500}
@@ -221,7 +221,7 @@ const ContactInfoCard: React.FC<ContactInfoCardProps> = ({
   href,
 }) => {
   const className =
-    'flex items-center gap-4 p-3 rounded-xl bg-white dark:bg-[#1c2127] border border-slate-200 dark:border-[#3b4754] shadow-sm transition-transform hover:scale-[1.01]';
+    'flex items-center gap-4 p-3 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 shadow-sm transition-transform hover:scale-[1.01]';
   const content = (
     <>
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/20 text-primary">
@@ -263,9 +263,9 @@ const LinkCard: React.FC<LinkCardProps> = ({ Icon, title, subtitle, href }) => (
     href={href}
     target={href.startsWith('http') ? '_blank' : undefined}
     rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-    className="group flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-[#252b33] border border-transparent hover:border-slate-200 dark:hover:border-[#3b4754] transition-all"
+    className="group flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all"
   >
-    <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-[#2a323c] text-slate-600 dark:text-slate-400 group-hover:bg-primary group-hover:text-white transition-colors">
+    <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:bg-primary group-hover:text-white transition-colors">
       <Icon size={20} aria-hidden="true" />
     </div>
     <div className="flex flex-col flex-1">

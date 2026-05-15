@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({
   const baseClasses =
     'rounded-xl border bg-white dark:bg-card-dark shadow-sm transition-all duration-300';
   const stateClasses = highlighted
-    ? 'border-primary/30 dark:bg-surface-dark shadow-[0_0_20px_rgba(19,127,236,0.05)]'
+    ? 'border-primary/30 dark:bg-surface-dark '
     : 'border-slate-200 dark:border-slate-700/50 hover:border-slate-300 dark:hover:border-slate-600';
 
   return (

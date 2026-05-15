@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  ArrowRight,
-  Bug,
-  CheckCircle2,
-  Code2,
-  Globe,
-  Mail,
-  type LucideIcon,
-} from 'lucide-react';
+import { ArrowRight, Code2, Globe, Mail, type LucideIcon } from 'lucide-react';
 import { useTranslation } from '../lib/i18n/use-translation';
 import { SOCIAL } from '../lib/social-links';
 import portraitAvif360 from '../images/optimized/portrait-360.avif';
@@ -22,15 +14,15 @@ const Hero: React.FC = () => {
   const hero = t.hero;
 
   return (
-    <div className="relative overflow-hidden pt-10 pb-20 lg:pt-20 lg:pb-32">
-      {/* Background Decor */}
+    <div className="relative overflow-hidden pt-14 pb-24 lg:pt-24 lg:pb-32">
+      {/* Background decor: dual soft halos hinting at primary + AI accent */}
       <div
         aria-hidden="true"
         className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"
       />
       <div
         aria-hidden="true"
-        className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"
+        className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-accent-ai/10 rounded-full blur-3xl pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -45,12 +37,14 @@ const Hero: React.FC = () => {
               {hero.welcomeChip}
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 dark:from-white dark:via-slate-200 dark:to-slate-400">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-slate-900 dark:text-white">
               DAN NGUYEN TIEN
             </h1>
 
             <h2 className="text-xl md:text-2xl font-medium text-slate-500 dark:text-slate-400 flex flex-col md:flex-row items-center lg:items-start gap-2 justify-center lg:justify-start">
-              <span className="text-primary font-mono font-bold">{hero.role}</span>
+              <span className="text-accent-ai font-mono font-semibold tracking-tight">
+                {hero.role}
+              </span>
               <span
                 aria-hidden="true"
                 className="hidden md:inline text-slate-300 dark:text-slate-700"
@@ -110,53 +104,44 @@ const Hero: React.FC = () => {
           {/* Visual Profile */}
           <div className="lg:col-span-5 relative flex justify-center lg:justify-end order-1 lg:order-2 mb-10 lg:mb-0">
             <div className="relative w-72 h-72 md:w-96 md:h-96">
-              <div className="absolute inset-0 m-auto w-56 h-56 md:w-72 md:h-72 rounded-full p-2 bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700/50 shadow-2xl z-10 overflow-hidden">
-                <picture>
-                  <source
-                    type="image/avif"
-                    srcSet={`${portraitAvif360} 1x, ${portraitAvif720} 2x`}
-                  />
-                  <source
-                    type="image/webp"
-                    srcSet={`${portraitWebp360} 1x, ${portraitWebp720} 2x`}
-                  />
-                  <img
-                    src={portraitJpg360}
-                    srcSet={`${portraitJpg360} 1x, ${portraitJpg720} 2x`}
-                    width="360"
-                    height="360"
-                    alt={hero.portraitAlt}
-                    fetchPriority="high"
-                    className="w-full h-full rounded-full object-cover bg-slate-800 transition-transform duration-500 hover:scale-110"
-                  />
-                </picture>
-              </div>
-
+              {/* Soft radial halo replaces the previous spinning orbital rings */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 w-full h-full border border-primary/20 rounded-full animate-[spin_10s_linear_infinite]"
-              >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background-dark border border-slate-700 p-2 rounded-full shadow-lg">
-                  <Bug size={14} className="text-primary" />
+                className="hero-halo absolute inset-0 rounded-full blur-2xl"
+              />
+
+              <div className="absolute inset-0 m-auto w-60 h-60 md:w-80 md:h-80 rounded-full p-[3px] bg-gradient-to-br from-primary/40 via-accent-ai/30 to-transparent z-10">
+                <div className="w-full h-full rounded-full overflow-hidden bg-slate-900">
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcSet={`${portraitAvif360} 1x, ${portraitAvif720} 2x`}
+                    />
+                    <source
+                      type="image/webp"
+                      srcSet={`${portraitWebp360} 1x, ${portraitWebp720} 2x`}
+                    />
+                    <img
+                      src={portraitJpg360}
+                      srcSet={`${portraitJpg360} 1x, ${portraitJpg720} 2x`}
+                      width="360"
+                      height="360"
+                      alt={hero.portraitAlt}
+                      fetchPriority="high"
+                      className="w-full h-full rounded-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  </picture>
                 </div>
               </div>
 
-              <div
-                aria-hidden="true"
-                className="absolute inset-4 w-[calc(100%-2rem)] h-[calc(100%-2rem)] border border-slate-700/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"
-              >
-                <div className="absolute bottom-1/4 left-0 -translate-x-1/2 bg-background-dark border border-slate-700 p-2 rounded-full shadow-lg">
-                  <CheckCircle2 size={14} className="text-green-500" />
-                </div>
-              </div>
-
+              {/* Status Badge */}
               <div className="absolute top-0 right-0 md:top-8 md:right-0 z-30">
-                <div className="bg-background-dark/90 backdrop-blur border border-green-500/30 py-2 px-3 md:px-4 rounded-full flex items-center gap-2 md:gap-3 shadow-xl ring-1 ring-green-500/20">
+                <div className="bg-white/90 dark:bg-background-dark/90 backdrop-blur border border-green-500/30 py-2 px-3 md:px-4 rounded-full flex items-center gap-2 md:gap-3 shadow-xl ring-1 ring-green-500/20">
                   <span className="relative flex h-2.5 w-2.5 md:h-3 md:w-3" aria-hidden="true">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-green-500" />
                   </span>
-                  <span className="text-xs md:text-sm font-bold text-slate-100">
+                  <span className="text-xs md:text-sm font-bold text-slate-900 dark:text-slate-100">
                     {hero.statusBadge}
                   </span>
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BadgeCheck, Package, Bug, ClipboardList } from 'lucide-react';
+import { ClipboardList, Package, Bug, Sparkles } from 'lucide-react';
 import { useTranslation } from '../lib/i18n/use-translation';
 import StatCard from './ui/stat-card';
 
@@ -18,9 +18,9 @@ const Achievements: React.FC = () => {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/20 blur-[100px] rounded-full pointer-events-none"
         />
         <div className="relative z-10 flex flex-col items-center max-w-4xl text-center">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 backdrop-blur-sm">
-            <BadgeCheck size={16} className="text-primary" aria-hidden="true" />
-            <span className="text-sm font-semibold text-primary">{a.chip}</span>
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-accent-ai/30 bg-accent-ai/10 px-4 py-1.5 backdrop-blur-sm">
+            <Sparkles size={16} className="text-accent-ai" aria-hidden="true" />
+            <span className="text-sm font-semibold text-accent-ai">{a.chip}</span>
           </div>
           <div className="flex flex-col items-center leading-none mb-6">
             <h2 className="text-[120px] sm:text-[160px] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-gray-800 to-gray-400 dark:from-white dark:to-gray-600">

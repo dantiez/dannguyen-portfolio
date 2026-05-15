@@ -7,7 +7,9 @@
     <script>
       // Apply theme + locale before paint to prevent FOUC.
       // Theme precedence: explicit choice > OS preference > brand default (dark).
-      // Locale precedence: explicit choice > navigator.language match > default 'en'.
+      // Locale precedence: explicit choice > brand default 'en'.
+      // (Browser language auto-detect intentionally disabled — recruiters prefer
+      // the canonical English version unless they explicitly switch.)
       (function () {
         var root = document.documentElement;
         try {
@@ -24,15 +26,8 @@
 
         try {
           var storedLocale = localStorage.getItem('locale');
-          var locale = 'en';
-          if (storedLocale === 'en' || storedLocale === 'vi' || storedLocale === 'ja') {
-            locale = storedLocale;
-          } else {
-            var nav = (navigator.language || 'en').toLowerCase();
-            if (nav.indexOf('ja') === 0) locale = 'ja';
-            else if (nav.indexOf('vi') === 0) locale = 'vi';
-          }
-          root.lang = locale;
+          root.lang =
+            storedLocale === 'vi' || storedLocale === 'ja' ? storedLocale : 'en';
         } catch (e) {
           root.lang = 'en';
         }
@@ -42,7 +37,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
