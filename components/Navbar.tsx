@@ -1,14 +1,18 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import { NAV_ITEMS } from '../lib/nav-items';
+import { getNavItems, NAV_ORDER } from '../lib/nav-items';
 import { useScrollSpy } from '../lib/use-scroll-spy';
+import { useTranslation } from '../lib/i18n/use-translation';
 import ThemeToggle from './ThemeToggle';
+import LocaleSwitcher from './LocaleSwitcher';
 import MobileMenu from './MobileMenu';
 
 const Navbar: React.FC = () => {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const sectionIds = useMemo(() => NAV_ITEMS.map((i) => i.id), []);
+  const sectionIds = useMemo(() => [...NAV_ORDER], []);
   const activeId = useScrollSpy(sectionIds);
+  const navItems = getNavItems(t);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +41,7 @@ const Navbar: React.FC = () => {
               type="button"
               className="flex items-center gap-3 cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              aria-label="Scroll to top"
+              aria-label={t.a11y.scrollToTop}
             >
               <div className="bg-primary/10 dark:bg-primary/20 p-1.5 rounded-lg text-primary">
                 <BugIcon />
@@ -47,8 +51,8 @@ const Navbar: React.FC = () => {
               </span>
             </button>
 
-            <nav className="hidden md:flex items-center space-x-6">
-              {NAV_ITEMS.map((item) => {
+            <nav className="hidden md:flex items-center space-x-5">
+              {navItems.map((item) => {
                 const isActive = activeId === item.id;
                 return (
                   <button
@@ -66,13 +70,14 @@ const Navbar: React.FC = () => {
                   </button>
                 );
               })}
+              <LocaleSwitcher />
               <ThemeToggle />
               <a
                 href="/resume.pdf"
                 download
                 className="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/25 active:scale-95"
               >
-                Download CV
+                {t.nav.downloadCv}
               </a>
             </nav>
 
@@ -82,7 +87,7 @@ const Navbar: React.FC = () => {
                 type="button"
                 onClick={() => setMenuOpen(true)}
                 className="text-slate-600 dark:text-slate-300 p-2"
-                aria-label="Open menu"
+                aria-label={t.a11y.openMenu}
                 aria-expanded={menuOpen}
                 aria-controls="mobile-menu"
               >
@@ -96,7 +101,7 @@ const Navbar: React.FC = () => {
       <MobileMenu
         isOpen={menuOpen}
         onClose={() => setMenuOpen(false)}
-        items={NAV_ITEMS}
+        items={navItems}
         activeId={activeId}
       />
     </>

@@ -7,10 +7,65 @@ import {
   Globe,
   type LucideIcon,
 } from 'lucide-react';
+import { useTranslation } from '../lib/i18n/use-translation';
+import type { Dictionary } from '../lib/i18n/dictionaries/en';
 import SectionHeader from './ui/section-header';
 import Tag from './ui/tag';
 
-interface TimelineEntry {
+type TimelineEntryKey = keyof Dictionary['careerTimeline']['entries'];
+
+interface TimelineStaticEntry {
+  key: TimelineEntryKey;
+  Icon: LucideIcon;
+  isCurrent?: boolean;
+}
+
+/**
+ * Static structural map. Order, icons, and "is current role" flag stay
+ * in code; copy lives in the dictionary so all 3 locales translate it.
+ */
+const TIMELINE_STATIC: TimelineStaticEntry[] = [
+  { key: 'hopeeFresher', Icon: Award, isCurrent: true },
+  { key: 'hopeeProbation', Icon: BadgeCheck },
+  { key: 'hopeeIntern', Icon: GraduationCap },
+  { key: 'fptAptech', Icon: Code2 },
+  { key: 'japan', Icon: Globe },
+];
+
+const CareerTimeline: React.FC = () => {
+  const { t } = useTranslation();
+  const tl = t.careerTimeline;
+
+  return (
+    <div className="w-full bg-slate-50 dark:bg-[#151a21] py-20 border-y border-slate-200 dark:border-[#283039]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader title={tl.title} subtitle={tl.subtitle} />
+
+        <div className="flex flex-col">
+          {TIMELINE_STATIC.map((entry, idx) => {
+            const copy = tl.entries[entry.key];
+            return (
+              <TimelineItem
+                key={entry.key}
+                Icon={entry.Icon}
+                isCurrent={entry.isCurrent}
+                title={copy.title}
+                company={copy.company}
+                date={copy.date}
+                items={copy.items}
+                tags={copy.tags}
+                subtext={'subtext' in copy ? (copy as { subtext?: string }).subtext : undefined}
+                last={idx === TIMELINE_STATIC.length - 1}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+interface TimelineItemProps {
   Icon: LucideIcon;
   title: string;
   company: string;
@@ -19,97 +74,6 @@ interface TimelineEntry {
   tags: string[];
   subtext?: string;
   isCurrent?: boolean;
-}
-
-const TIMELINE_ENTRIES: TimelineEntry[] = [
-  {
-    Icon: Award,
-    title: 'Fresher / Junior',
-    company: 'HOPEE Co., Ltd.',
-    date: '11/2024 - Present',
-    isCurrent: true,
-    items: [
-      'Engaged in full-cycle testing for client projects, ensuring high-quality deliverables.',
-      'Collaborating with cross-functional teams to resolve complex issues and improve product stability.',
-      'Continuing to refine automation skills and contribute to internal QA process improvements.',
-    ],
-    tags: ['Automation', 'Team Collaboration', 'Quality Control'],
-  },
-  {
-    Icon: BadgeCheck,
-    title: 'Probation',
-    company: 'HOPEE Co., Ltd.',
-    date: '09/2024 - 11/2024',
-    items: [
-      'Successfully transitioned from intern to probationary employee, taking on increased responsibilities.',
-      'Executed regression testing plans and reported critical defects prior to release cycles.',
-      'Demonstrated strong understanding of QA methodologies and tool proficiency.',
-    ],
-    tags: ['Regression Testing', 'Bug Reporting'],
-  },
-  {
-    Icon: GraduationCap,
-    title: 'Intern',
-    company: 'HOPEE Co., Ltd.',
-    date: '06/2024 - 08/2024',
-    items: [
-      "Gained hands-on experience in manual testing and familiarized with the company's tech stack.",
-      'Assisted senior engineers in creating test cases and documentation.',
-      'Participated in daily stand-ups and agile processes.',
-    ],
-    tags: ['Manual Testing', 'Documentation', 'Agile'],
-  },
-  {
-    Icon: Code2,
-    title: 'Computer Education',
-    company: 'FPT Aptech',
-    date: '07/2023 - 05/2024',
-    subtext: 'Aptech Computer Education, India – in cooperation with FPT Corporation',
-    items: [
-      'Completed intensive coursework in software development and testing fundamentals.',
-      'Developed foundational knowledge in programming logic, database management, and web technologies.',
-      'Participated in practical projects to apply theoretical concepts.',
-    ],
-    tags: ['Software Development', 'Databases', 'Testing Fundamentals'],
-  },
-  {
-    Icon: Globe,
-    title: 'International Student',
-    company: 'Japan',
-    date: '2019 - 2023',
-    items: [
-      'Pursued academic studies while adapting to a new cultural environment.',
-      'Developed strong cross-cultural communication skills and resilience.',
-      'Gained proficiency in the Japanese language and work ethic.',
-    ],
-    tags: ['Japanese Language', 'Adaptability'],
-  },
-];
-
-const CareerTimeline: React.FC = () => {
-  return (
-    <div className="w-full bg-slate-50 dark:bg-[#151a21] py-20 border-y border-slate-200 dark:border-[#283039]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          title="Professional Journey"
-          subtitle="A timeline of my career in Quality Assurance, highlighting key roles, achievements, and educational background."
-        />
-
-        <div className="flex flex-col">
-          {TIMELINE_ENTRIES.map((entry, idx) => (
-            <TimelineItem
-              key={`${entry.company}-${entry.date}`}
-              {...entry}
-              last={idx === TIMELINE_ENTRIES.length - 1}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-interface TimelineItemProps extends TimelineEntry {
   last?: boolean;
 }
 
@@ -158,9 +122,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
               >
                 {title}
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 font-medium">
-                {company}
-              </p>
+              <p className="text-slate-500 dark:text-slate-400 font-medium">{company}</p>
               {subtext && (
                 <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
                   {subtext}

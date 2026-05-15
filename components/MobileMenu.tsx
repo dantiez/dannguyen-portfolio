@@ -1,24 +1,27 @@
 import React, { useEffect, useRef } from 'react';
-import type { NavItem } from '../lib/nav-items';
+import type { NavSectionId } from '../lib/nav-items';
+import { useTranslation } from '../lib/i18n/use-translation';
+import LocaleSwitcher from './LocaleSwitcher';
 import ThemeToggle from './ThemeToggle';
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-  items: NavItem[];
+  items: Array<{ id: NavSectionId; label: string }>;
   activeId: string | null;
 }
 
 /**
- * Slide-down drawer for mobile navigation.
- * Lightweight custom impl (no Radix dependency) with:
+ * Slide-down drawer for mobile navigation. Lightweight custom impl
+ * (no Radix dependency) with:
  *   - Escape key + backdrop click to close
  *   - Body scroll lock while open
- *   - Initial focus on first link, focus returns to trigger via React state
- *   - aria-modal + labelled by the visually hidden heading
+ *   - Initial focus on first link
+ *   - aria-modal + labelled by visually hidden heading
  */
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, items, activeId }) => {
   const firstLinkRef = useRef<HTMLButtonElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -41,7 +44,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, items, activeI
 
   const handleNavigate = (id: string) => {
     onClose();
-    // Defer scroll until after the menu closes so layout settles.
     requestAnimationFrame(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     });
@@ -56,28 +58,26 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, items, activeI
       aria-labelledby="mobile-menu-heading"
       className="fixed inset-0 z-50 md:hidden"
     >
-      {/* Backdrop */}
       <button
         type="button"
-        aria-label="Close menu"
+        aria-label={t.a11y.closeMenu}
         onClick={onClose}
         className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
       />
 
-      {/* Drawer panel */}
       <div className="absolute top-0 inset-x-0 bg-white dark:bg-background-dark border-b border-slate-200 dark:border-[#283039] shadow-xl animate-fade-in-up">
         <h2 id="mobile-menu-heading" className="sr-only">
-          Site navigation
+          {t.a11y.siteNav}
         </h2>
 
         <div className="flex items-center justify-between px-4 h-16">
           <span className="text-sm font-bold tracking-tight text-slate-900 dark:text-white">
-            MENU
+            {t.nav.menu}
           </span>
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close menu"
+            aria-label={t.a11y.closeMenu}
             className="p-2 text-slate-600 dark:text-slate-300 hover:text-primary"
           >
             <svg
@@ -118,10 +118,13 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, items, activeI
             );
           })}
           <div className="mt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-700 pt-4">
-            <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-              Appearance
-            </span>
-            <ThemeToggle />
+            <LocaleSwitcher />
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                {t.a11y.appearance}
+              </span>
+              <ThemeToggle />
+            </div>
           </div>
         </nav>
       </div>

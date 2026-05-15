@@ -1,16 +1,31 @@
-export interface NavItem {
-  id: string;
-  label: string;
-}
+import type { Dictionary } from './i18n/dictionaries/en';
 
 /**
- * Single source of truth for navigation order.
- * Order also drives the IntersectionObserver candidates in useScrollSpy.
+ * Section ids that drive the navbar order AND IntersectionObserver scroll-spy.
+ * Labels resolved from the active translation dictionary at render time.
  */
-export const NAV_ITEMS: NavItem[] = [
-  { id: 'about', label: 'About' },
-  { id: 'achievements', label: 'Achievements' },
-  { id: 'careertimeline', label: 'Career' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
-];
+export const NAV_ORDER = [
+  'about',
+  'achievements',
+  'careertimeline',
+  'skills',
+  'contact',
+] as const;
+
+export type NavSectionId = (typeof NAV_ORDER)[number];
+
+/**
+ * Resolves localized navbar labels from a dictionary. Centralized so both
+ * desktop nav and mobile drawer stay in sync without duplicating the map.
+ */
+export function getNavItems(
+  t: Dictionary,
+): Array<{ id: NavSectionId; label: string }> {
+  return [
+    { id: 'about', label: t.nav.about },
+    { id: 'achievements', label: t.nav.achievements },
+    { id: 'careertimeline', label: t.nav.career },
+    { id: 'skills', label: t.nav.skills },
+    { id: 'contact', label: t.nav.contact },
+  ];
+}

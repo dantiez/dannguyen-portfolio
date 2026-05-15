@@ -5,20 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dan Nguyen Tien - QA/QC Engineer</title>
     <script>
-      // Apply theme before paint to prevent FOUC. Mirrors readInitialTheme() in lib/use-theme.ts.
-      // Precedence: explicit user choice > OS preference > brand default (dark).
+      // Apply theme + locale before paint to prevent FOUC.
+      // Theme precedence: explicit choice > OS preference > brand default (dark).
+      // Locale precedence: explicit choice > navigator.language match > default 'en'.
       (function () {
+        var root = document.documentElement;
         try {
-          var stored = localStorage.getItem('theme');
-          if (stored === 'light') return;
-          if (stored === 'dark') {
-            document.documentElement.classList.add('dark');
-            return;
+          var storedTheme = localStorage.getItem('theme');
+          if (storedTheme === 'dark') {
+            root.classList.add('dark');
+          } else if (storedTheme !== 'light') {
+            var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+            if (!prefersLight) root.classList.add('dark');
           }
-          var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-          if (!prefersLight) document.documentElement.classList.add('dark');
         } catch (e) {
-          document.documentElement.classList.add('dark');
+          root.classList.add('dark');
+        }
+
+        try {
+          var storedLocale = localStorage.getItem('locale');
+          var locale = 'en';
+          if (storedLocale === 'en' || storedLocale === 'vi' || storedLocale === 'ja') {
+            locale = storedLocale;
+          } else {
+            var nav = (navigator.language || 'en').toLowerCase();
+            if (nav.indexOf('ja') === 0) locale = 'ja';
+            else if (nav.indexOf('vi') === 0) locale = 'vi';
+          }
+          root.lang = locale;
+        } catch (e) {
+          root.lang = 'en';
         }
       })();
     </script>

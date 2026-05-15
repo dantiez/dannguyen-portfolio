@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from '../lib/use-theme';
+import { useTranslation } from '../lib/i18n/use-translation';
 
 /**
  * Sun/moon icon toggle. Inline SVG to avoid loading an icon font for
@@ -7,14 +8,16 @@ import { useTheme } from '../lib/use-theme';
  */
 const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useTranslation();
   const isDark = theme === 'dark';
+  const label = isDark ? t.a11y.switchToLight : t.a11y.switchToDark;
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={label}
+      title={label}
       className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-colors"
     >
       {isDark ? (

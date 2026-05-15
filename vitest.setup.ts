@@ -26,9 +26,9 @@ if (typeof window !== 'undefined') {
       rootMargin = '';
       thresholds: number[] = [];
     }
-    // @ts-expect-error – installing global stub for tests
-    window.IntersectionObserver = IntersectionObserverStub;
-    // @ts-expect-error – jsdom global parity
-    global.IntersectionObserver = IntersectionObserverStub;
+    (window as unknown as { IntersectionObserver: unknown }).IntersectionObserver =
+      IntersectionObserverStub;
+    (global as unknown as { IntersectionObserver: unknown }).IntersectionObserver =
+      IntersectionObserverStub;
   }
 }

@@ -6,12 +6,15 @@ import CareerTimeline from './components/CareerTimeline';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { useTranslation } from './lib/i18n/use-translation';
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark">
       <a href="#main-content" className="skip-to-content">
-        Skip to main content
+        {t.a11y.skipToContent}
       </a>
       <Navbar />
       <main id="main-content" tabIndex={-1} className="flex-grow flex flex-col w-full">

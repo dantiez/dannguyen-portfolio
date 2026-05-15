@@ -14,8 +14,13 @@ import {
   Send,
   type LucideIcon,
 } from 'lucide-react';
+import { useTranslation } from '../lib/i18n/use-translation';
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
+  const c = t.contact;
+  const f = c.form;
+
   return (
     <div className="relative py-12 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div
@@ -27,7 +32,6 @@ const Contact: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-        {/* Left Column: Info */}
         <div className="flex flex-col space-y-8 lg:sticky lg:top-24">
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 w-fit">
@@ -37,67 +41,64 @@ const Contact: React.FC = () => {
                 aria-hidden="true"
               />
               <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide">
-                Available for Opportunities: GMT+7
+                {c.availability}
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight tracking-[-0.02em] text-slate-900 dark:text-white">
-              Let&apos;s Connect
+              {c.title}
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
-              Found a bug in my code or want to discuss a QA strategy? Drop me
-              a line below. I&apos;m precise with my testing and quick with my
-              replies.
+              {c.body}
             </p>
           </div>
 
           <div className="flex flex-col gap-3">
             <ContactInfoCard
               Icon={Mail}
-              label="Email Address"
+              label={c.info.emailLabel}
               value="dannt4022@gmail.com"
               href="mailto:dannt4022@gmail.com"
             />
             <ContactInfoCard
               Icon={Phone}
-              label="Phone Number"
+              label={c.info.phoneLabel}
               value="+84 907281361"
               href="tel:+84907281361"
             />
             <ContactInfoCard
               Icon={MapPin}
-              label="Base Location"
-              value="Hoc Mon District, Ho Chi Minh City, Vietnam"
+              label={c.info.locationLabel}
+              value={c.info.locationValue}
             />
           </div>
 
           <div className="pt-2">
             <p className="text-sm font-semibold text-slate-900 dark:text-white mb-4">
-              Professional Profiles
+              {c.profiles.heading}
             </p>
             <div className="grid grid-cols-1 gap-3">
               <LinkCard
                 Icon={FileText}
-                title="Download Resume"
-                subtitle="Get a PDF copy of my full CV"
+                title={c.profiles.resume.title}
+                subtitle={c.profiles.resume.subtitle}
                 href="/resume.pdf"
               />
               <LinkCard
                 Icon={Linkedin}
-                title="LinkedIn Profile"
-                subtitle="Connect and network"
+                title={c.profiles.linkedin.title}
+                subtitle={c.profiles.linkedin.subtitle}
                 href="#"
               />
               <LinkCard
                 Icon={Code2}
-                title="GitHub Portfolio"
-                subtitle="Review my code repositories"
+                title={c.profiles.github.title}
+                subtitle={c.profiles.github.subtitle}
                 href="#"
               />
             </div>
           </div>
         </div>
 
-        {/* Right Column: Form */}
         <div className="w-full bg-white dark:bg-[#151a21] rounded-2xl shadow-xl border border-slate-200 dark:border-[#2a3441] p-6 sm:p-8 relative overflow-hidden h-fit">
           <div
             aria-hidden="true"
@@ -107,23 +108,23 @@ const Contact: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <label className="flex flex-col flex-1 gap-2">
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                  Name <span className="text-red-500">*</span>
+                  {f.nameLabel} <span className="text-red-500">{f.required}</span>
                 </span>
                 <input
                   className="w-full rounded-lg border-slate-300 dark:border-[#3b4754] bg-slate-50 dark:bg-[#1c2127] text-slate-900 dark:text-white h-12 px-4 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm"
-                  placeholder="Jane Doe"
+                  placeholder={f.namePlaceholder}
                   required
                   type="text"
                 />
               </label>
               <label className="flex flex-col flex-1 gap-2">
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                  Email Address <span className="text-red-500">*</span>
+                  {f.emailLabel} <span className="text-red-500">{f.required}</span>
                 </span>
                 <div className="relative">
                   <input
                     className="w-full rounded-lg border-slate-300 dark:border-[#3b4754] bg-slate-50 dark:bg-[#1c2127] text-slate-900 dark:text-white h-12 pl-10 pr-4 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
-                    placeholder="jane@example.com"
+                    placeholder={f.emailPlaceholder}
                     required
                     type="email"
                   />
@@ -138,7 +139,7 @@ const Contact: React.FC = () => {
 
             <label className="flex flex-col flex-1 gap-2">
               <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                Subject
+                {f.subjectLabel}
               </span>
               <div className="relative">
                 <select
@@ -146,12 +147,12 @@ const Contact: React.FC = () => {
                   className="w-full appearance-none rounded-lg border-slate-300 dark:border-[#3b4754] bg-slate-50 dark:bg-[#1c2127] text-slate-900 dark:text-white h-12 px-4 pr-10 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm"
                 >
                   <option className="text-slate-400" disabled value="">
-                    Select a topic
+                    {f.subjectPlaceholder}
                   </option>
-                  <option value="opportunity">Job Opportunity</option>
-                  <option value="freelance">Freelance Project</option>
-                  <option value="bug">Report a Bug</option>
-                  <option value="other">Other</option>
+                  <option value="opportunity">{f.subjectOptions.opportunity}</option>
+                  <option value="freelance">{f.subjectOptions.freelance}</option>
+                  <option value="bug">{f.subjectOptions.bug}</option>
+                  <option value="other">{f.subjectOptions.other}</option>
                 </select>
                 <ChevronDown
                   size={18}
@@ -164,15 +165,15 @@ const Contact: React.FC = () => {
             <label className="flex flex-col flex-1 gap-2">
               <div className="flex justify-between items-end">
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                  Message <span className="text-red-500">*</span>
+                  {f.messageLabel} <span className="text-red-500">{f.required}</span>
                 </span>
                 <span className="text-xs text-slate-500 dark:text-slate-400">
-                  Max 500 characters
+                  {f.messageMaxHint}
                 </span>
               </div>
               <textarea
                 className="w-full rounded-lg border-slate-300 dark:border-[#3b4754] bg-slate-50 dark:bg-[#1c2127] text-slate-900 dark:text-white min-h-[160px] p-4 placeholder:text-slate-400 dark:placeholder:text-[#9dabb9] focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm resize-y"
-                placeholder="Describe your project or inquiry..."
+                placeholder={f.messagePlaceholder}
                 required
                 maxLength={500}
               />
@@ -183,7 +184,7 @@ const Contact: React.FC = () => {
                 type="submit"
                 className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 active:bg-blue-700 text-white font-semibold h-12 px-8 rounded-lg transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-primary/40"
               >
-                <span>Send Message</span>
+                <span>{f.submit}</span>
                 <Send
                   size={18}
                   className="group-hover:translate-x-1 transition-transform"
@@ -195,7 +196,7 @@ const Contact: React.FC = () => {
             <div className="flex items-center gap-2 justify-center sm:justify-start pt-2">
               <CheckCircle2 size={14} className="text-green-500" aria-hidden="true" />
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Protected by standard input validation.
+                {f.validationNote}
               </p>
             </div>
           </form>
@@ -270,9 +271,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ Icon, title, subtitle, href }) => (
       <span className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
         {title}
       </span>
-      <span className="text-xs text-slate-500 dark:text-slate-400">
-        {subtitle}
-      </span>
+      <span className="text-xs text-slate-500 dark:text-slate-400">{subtitle}</span>
     </div>
     <ArrowRight
       size={18}
