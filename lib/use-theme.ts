@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 export type Theme = 'light' | 'dark';
 
@@ -27,6 +27,11 @@ function applyTheme(theme: Theme): void {
   }
 }
 
+/**
+ * Theme is dark by default. Users opt into light via the toggle button.
+ * OS color-scheme is intentionally ignored — the canonical portfolio
+ * look is the dark variant.
+ */
 export function useTheme() {
   const [theme, setThemeState] = useState<Theme>(readInitialTheme);
 
@@ -38,18 +43,6 @@ export function useTheme() {
   const toggleTheme = useCallback(() => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   }, [theme, setTheme]);
-
-  // Follow OS preference changes ONLY when the user has not made an explicit choice.
-  useEffect(() => {
-    const mql = window.matchMedia('(prefers-color-scheme: dark)');
-    const handler = (e: MediaQueryListEvent) => {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored === 'light' || stored === 'dark') return;
-      setTheme(e.matches ? 'dark' : 'light');
-    };
-    mql.addEventListener('change', handler);
-    return () => mql.removeEventListener('change', handler);
-  }, [setTheme]);
 
   return { theme, setTheme, toggleTheme };
 }

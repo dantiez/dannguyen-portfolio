@@ -84,19 +84,16 @@
 
     <script>
       // Apply theme + locale before paint to prevent FOUC.
-      // Theme precedence: explicit choice > OS preference > brand default (dark).
+      // Theme precedence: explicit choice ('light' or 'dark') > brand default (dark).
+      // OS color-scheme is intentionally ignored — dark is the canonical look.
       // Locale precedence: explicit choice > brand default 'en'.
       // (Browser language auto-detect intentionally disabled — recruiters prefer
       // the canonical English version unless they explicitly switch.)
       (function () {
         var root = document.documentElement;
         try {
-          var storedTheme = localStorage.getItem('theme');
-          if (storedTheme === 'dark') {
+          if (localStorage.getItem('theme') !== 'light') {
             root.classList.add('dark');
-          } else if (storedTheme !== 'light') {
-            var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-            if (!prefersLight) root.classList.add('dark');
           }
         } catch (e) {
           root.classList.add('dark');
