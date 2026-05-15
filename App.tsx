@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import CurrentlyBuilding from './components/CurrentlyBuilding';
 import Achievements from './components/Achievements';
 import CareerTimeline from './components/CareerTimeline';
 import AiWorkflow from './components/AiWorkflow';
+import RepoShowcase from './components/RepoShowcase';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -30,6 +32,10 @@ const App: React.FC = () => {
           <Hero />
         </section>
 
+        <section id="now">
+          <CurrentlyBuilding />
+        </section>
+
         <section id="achievements">
           <Achievements />
         </section>
@@ -40,6 +46,10 @@ const App: React.FC = () => {
 
         <section id="aiworkflow">
           <AiWorkflow />
+        </section>
+
+        <section id="repos">
+          <RepoShowcase />
         </section>
 
         <section id="skills">

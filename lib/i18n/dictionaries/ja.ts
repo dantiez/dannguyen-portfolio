@@ -32,6 +32,7 @@ const ja: Dictionary = {
     achievements: '実績',
     career: '経歴',
     aiWorkflow: 'AIワークフロー',
+    repos: '制作物',
     skills: 'スキル',
     contact: 'お問い合わせ',
     downloadCv: '履歴書ダウンロード',
@@ -50,6 +51,38 @@ const ja: Dictionary = {
     social: {
       linkedin: 'LinkedIn',
       github: 'GitHub',
+    },
+  },
+
+  currentlyBuilding: {
+    eyebrow: '現在',
+    title: '取り組み中 & 学習中',
+    items: [
+      'Claude Code と組んだ Playwright テストスイート',
+      'ISTQB Foundation Level — 2026年Q3を目標',
+      'LLM評価パターン (Promptfoo · Ragas)',
+    ],
+  },
+
+  repos: {
+    eyebrow: '公開リポジトリ',
+    title: 'コード & プロジェクト',
+    subtitle:
+      '公開しているテストスイート、自動化、ツール類です。日々の業務で構築したものをそのまま共有しています。',
+    viewAll: 'GitHubで全リポジトリを見る',
+    entries: {
+      playwright: {
+        description:
+          '公開ECサンドボックス向けの Playwright + Selenium テスト。Page Object Model と非同期パターン、Claude Code とのペアプログラミングで構築。',
+      },
+      portfolio: {
+        description:
+          'このポートフォリオ。React 19 + Vite 6 + Tailwind 4、EN/VI/JA の i18n、ダーク/ライトテーマ、Vercel にデプロイ。',
+      },
+      apiCollections: {
+        description:
+          'REST API 検証用の Postman コレクション + Mockoon シナリオ。ハッピーパス、エッジケース、コントラクトドリフトを網羅。',
+      },
     },
   },
 

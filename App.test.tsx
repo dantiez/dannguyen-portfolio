@@ -20,9 +20,11 @@ describe('App', () => {
     const { container } = renderApp();
     const ids = [
       'about',
+      'now',
       'achievements',
       'careertimeline',
       'aiworkflow',
+      'repos',
       'skills',
       'contact',
     ];

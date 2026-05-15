@@ -29,6 +29,7 @@ const vi: Dictionary = {
     achievements: 'Thành tích',
     career: 'Sự nghiệp',
     aiWorkflow: 'AI Workflow',
+    repos: 'Dự án',
     skills: 'Kỹ năng',
     contact: 'Liên hệ',
     downloadCv: 'Tải CV',
@@ -47,6 +48,38 @@ const vi: Dictionary = {
     social: {
       linkedin: 'LinkedIn',
       github: 'GitHub',
+    },
+  },
+
+  currentlyBuilding: {
+    eyebrow: 'Hiện tại',
+    title: 'Đang xây dựng & học hỏi',
+    items: [
+      'Bộ test Playwright kết hợp Claude Code',
+      'ISTQB Foundation Level — mục tiêu Q3 2026',
+      'Các pattern đánh giá LLM (Promptfoo · Ragas)',
+    ],
+  },
+
+  repos: {
+    eyebrow: 'Mã nguồn mở',
+    title: 'Code & Dự án',
+    subtitle:
+      'Những sản phẩm tôi public — test suite, automation và tooling tự build trong quá trình làm việc.',
+    viewAll: 'Xem tất cả repository trên GitHub',
+    entries: {
+      playwright: {
+        description:
+          'Bộ test Playwright + Selenium cho một e-commerce sandbox công khai. Page Object Model, async pattern, scaffold qua các phiên cặp đôi Claude Code.',
+      },
+      portfolio: {
+        description:
+          'Chính portfolio này. React 19 + Vite 6 + Tailwind 4, i18n EN/VI/JA, dark/light theme, deploy trên Vercel.',
+      },
+      apiCollections: {
+        description:
+          'Postman collection + kịch bản Mockoon dùng kiểm thử REST API với happy path, edge case và contract drift.',
+      },
     },
   },
 

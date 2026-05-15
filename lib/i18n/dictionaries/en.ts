@@ -31,6 +31,7 @@ const en = {
     achievements: 'Achievements',
     career: 'Career',
     aiWorkflow: 'AI Workflow',
+    repos: 'Work',
     skills: 'Skills',
     contact: 'Contact',
     downloadCv: 'Download CV',
@@ -49,6 +50,38 @@ const en = {
     social: {
       linkedin: 'LinkedIn',
       github: 'GitHub',
+    },
+  },
+
+  currentlyBuilding: {
+    eyebrow: 'Right now',
+    title: "Currently building & learning",
+    items: [
+      'Playwright test suite paired with Claude Code',
+      'ISTQB Foundation Level — target Q3 2026',
+      'LLM evaluation patterns (Promptfoo · Ragas)',
+    ],
+  },
+
+  repos: {
+    eyebrow: 'In public',
+    title: 'Code & Projects',
+    subtitle:
+      'Things I ship in the open — test suites, automation, and tooling I build along the way.',
+    viewAll: 'View all repositories on GitHub',
+    entries: {
+      playwright: {
+        description:
+          'Playwright + Selenium tests for a public e-commerce sandbox. Page Object Model, async patterns, scaffolded via Claude Code pair-sessions.',
+      },
+      portfolio: {
+        description:
+          'This portfolio. React 19 + Vite 6 + Tailwind 4, i18n EN/VI/JA, dark/light themes, Vercel-deployed.',
+      },
+      apiCollections: {
+        description:
+          'Postman collection + Mockoon scenarios used to verify REST APIs across happy path, edge cases, and contract drift.',
+      },
     },
   },
 
