@@ -1,24 +1,21 @@
-# CV — Dan Nguyen Tien
+<!--
+  SOURCE OF TRUTH for the printable resume. Sync portfolio bio/skills here.
 
-> **Single source of truth** for resume content. Sync this whenever portfolio bio/skills change.
->
-> **How to generate PDF** (pick one):
-> 1. Open in **Typora** → File → Export → PDF
-> 2. **Pandoc**: `pandoc cv-content.md -o resume.pdf --pdf-engine=xelatex`
-> 3. Paste into **FlowCV** / **Rezi** / **Resume.io** for ATS-optimized formatting
-> 4. Paste into **Canva** "Resume" template for visual version
->
-> After generating, place final file at `public/resume.pdf` so the portfolio "Download CV" button works.
+  Build PDF:  npm run cv:build  →  outputs public/resume.pdf
 
----
+  Alternative manual workflows:
+    - Pandoc:  pandoc cv-content.md -o ../public/resume.pdf --pdf-engine=xelatex
+    - FlowCV:  https://flowcv.com (paste content, ATS template, download PDF)
+    - Typora:  File → Export → PDF
+-->
 
-## Dan Nguyen Tien
+# Dan Nguyen Tien
 
 **AI-Augmented QA Engineer** · Ho Chi Minh City, Vietnam (GMT+7) · Open to Remote / Hybrid
 
-📧 dannt4022@gmail.com  ·  📞 +84 907 281 361
-🔗 LinkedIn: linkedin.com/in/dan-nguyen-tien-a24244302  ·  💻 GitHub: github.com/dantiez
-🌐 Portfolio: dantiez-portfolio.vercel.app
+dannt4022@gmail.com  ·  +84 907 281 361  
+LinkedIn: linkedin.com/in/dan-nguyen-tien-a24244302  ·  GitHub: github.com/dantiez  
+Portfolio: dantiez-portfolio.vercel.app
 
 ---
 

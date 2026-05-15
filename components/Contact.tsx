@@ -332,8 +332,8 @@ interface LinkCardProps {
 const LinkCard: React.FC<LinkCardProps> = ({ Icon, title, subtitle, href }) => (
   <a
     href={href}
-    target={href.startsWith('http') ? '_blank' : undefined}
-    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+    target="_blank"
+    rel="noopener noreferrer"
     className="group flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all"
   >
     <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:bg-primary group-hover:text-white transition-colors">

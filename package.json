@@ -16,7 +16,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "images:optimize": "node scripts/optimize-images.mjs",
-    "og:generate": "node scripts/generate-og-image.mjs"
+    "og:generate": "node scripts/generate-og-image.mjs",
+    "cv:build": "node scripts/build-cv.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -40,6 +41,7 @@
     "eslint-plugin-react-refresh": "^0.4.26",
     "globals": "^15.15.0",
     "jsdom": "^25.0.1",
+    "md-to-pdf": "^5.2.5",
     "prettier": "^3.8.3",
     "sharp": "^0.33.5",
     "tailwindcss": "^4.3.0",
