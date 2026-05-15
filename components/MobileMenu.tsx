@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { FileText } from 'lucide-react';
 import type { NavSectionId } from '../lib/nav-items';
 import { useTranslation } from '../lib/i18n/use-translation';
 
@@ -115,6 +116,19 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, items, activeI
               </button>
             );
           })}
+
+          {/* Primary CTA mirrored from the desktop navbar so mobile recruiters
+              can grab the resume without scrolling all the way to Contact. */}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClose}
+            className="mt-4 flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-base font-bold transition-colors shadow-md shadow-primary/20"
+          >
+            <FileText size={18} aria-hidden="true" />
+            {t.nav.downloadCv}
+          </a>
         </nav>
       </div>
     </div>
