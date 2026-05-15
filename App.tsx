@@ -7,6 +7,7 @@ import AiWorkflow from './components/AiWorkflow';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 import { useTranslation } from './lib/i18n/use-translation';
 
 const App: React.FC = () => {
@@ -50,6 +51,7 @@ const App: React.FC = () => {
         </section>
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };
