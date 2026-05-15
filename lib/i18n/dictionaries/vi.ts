@@ -244,6 +244,7 @@ const vi: Dictionary = {
       sending: 'Đang gửi…',
       sendAnother: 'Gửi thêm tin nhắn',
       emailError: 'Vui lòng nhập địa chỉ email hợp lệ.',
+      emailMeDirectly: 'Gửi email trực tiếp',
       charCounterLabel: 'ký tự',
       successTitle: 'Đã gửi — sẽ phản hồi sớm.',
       successBody: 'Cảm ơn bạn đã liên hệ. Tôi sẽ trả lời trong vòng 24 giờ.',

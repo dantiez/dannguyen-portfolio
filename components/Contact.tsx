@@ -254,28 +254,40 @@ const Contact: React.FC = () => {
             </label>
 
             <div className="pt-2">
-              <button
-                type="submit"
-                disabled={isSending || isOffline}
-                aria-busy={isSending}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 active:bg-blue-700 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-semibold h-12 px-8 rounded-lg transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-primary/40"
-              >
-                {isSending ? (
-                  <>
-                    <Loader2 size={18} className="animate-spin" aria-hidden="true" />
-                    <span>{f.sending}</span>
-                  </>
-                ) : (
-                  <>
-                    <span>{f.submit}</span>
-                    <Send
-                      size={18}
-                      className="group-hover:translate-x-1 transition-transform"
-                      aria-hidden="true"
-                    />
-                  </>
-                )}
-              </button>
+              {isOffline ? (
+                // Form delivery not configured → swap submit for a real
+                // mailto link so the recruiter still has a 1-click action.
+                <a
+                  href={`mailto:${SOCIAL.email}`}
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 active:bg-blue-700 text-white font-semibold h-12 px-8 rounded-lg transition-colors duration-200"
+                >
+                  <Mail size={18} aria-hidden="true" />
+                  <span>{f.emailMeDirectly}</span>
+                </a>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={isSending}
+                  aria-busy={isSending}
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 active:bg-blue-700 disabled:bg-slate-400 disabled:shadow-none disabled:cursor-not-allowed text-white font-semibold h-12 px-8 rounded-lg transition-all duration-200 shadow-md shadow-primary/15 hover:shadow-primary/30"
+                >
+                  {isSending ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" aria-hidden="true" />
+                      <span>{f.sending}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>{f.submit}</span>
+                      <Send
+                        size={18}
+                        className="group-hover:translate-x-1 transition-transform"
+                        aria-hidden="true"
+                      />
+                    </>
+                  )}
+                </button>
+              )}
             </div>
 
             {/* Status messages (aria-live=polite for screen reader announce) */}

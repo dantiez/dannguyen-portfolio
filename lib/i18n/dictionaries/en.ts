@@ -246,6 +246,7 @@ const en = {
       sending: 'Sending…',
       sendAnother: 'Send another message',
       emailError: 'Please enter a valid email address.',
+      emailMeDirectly: 'Email Me Directly',
       charCounterLabel: 'characters',
       successTitle: 'Message sent — talk soon.',
       successBody: "Thanks for reaching out. I'll reply within 24 hours.",

@@ -247,6 +247,7 @@ const ja: Dictionary = {
       sending: '送信中…',
       sendAnother: '別のメッセージを送る',
       emailError: '有効なメールアドレスを入力してください。',
+      emailMeDirectly: 'メールで直接連絡する',
       charCounterLabel: '文字',
       successTitle: '送信完了 — 近日中にご連絡いたします。',
       successBody: 'お問い合わせありがとうございます。24時間以内に返信いたします。',
