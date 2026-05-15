@@ -5,6 +5,7 @@ import { useTranslation } from '../lib/i18n/use-translation';
 import ThemeToggle from './ThemeToggle';
 import LocaleSwitcher from './LocaleSwitcher';
 import MobileMenu from './MobileMenu';
+import Tooltip from './ui/tooltip';
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
@@ -37,19 +38,21 @@ const Navbar: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <button
-              type="button"
-              className="flex items-center gap-3 cursor-pointer"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              aria-label={t.a11y.scrollToTop}
-            >
-              <div className="bg-primary/10 dark:bg-primary/20 p-1.5 rounded-lg text-primary">
-                <BugIcon />
-              </div>
-              <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white hidden sm:block">
-                DAN NGUYEN TIEN
-              </span>
-            </button>
+            <Tooltip label={t.a11y.scrollToTop} side="bottom">
+              <button
+                type="button"
+                className="flex items-center gap-3 cursor-pointer"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                aria-label={t.a11y.scrollToTop}
+              >
+                <div className="bg-primary/10 dark:bg-primary/20 p-1.5 rounded-lg text-primary">
+                  <BugIcon />
+                </div>
+                <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white hidden sm:block">
+                  DAN NGUYEN TIEN
+                </span>
+              </button>
+            </Tooltip>
 
             <nav className="hidden md:flex items-center space-x-5">
               {navItems.map((item) => {
@@ -84,16 +87,18 @@ const Navbar: React.FC = () => {
             <div className="md:hidden flex items-center gap-2">
               <LocaleSwitcher />
               <ThemeToggle />
-              <button
-                type="button"
-                onClick={() => setMenuOpen(true)}
-                className="text-slate-600 dark:text-slate-300 p-2"
-                aria-label={t.a11y.openMenu}
-                aria-expanded={menuOpen}
-                aria-controls="mobile-menu"
-              >
-                <MenuIcon />
-              </button>
+              <Tooltip label={t.a11y.openMenu} side="bottom">
+                <button
+                  type="button"
+                  onClick={() => setMenuOpen(true)}
+                  className="text-slate-600 dark:text-slate-300 p-2"
+                  aria-label={t.a11y.openMenu}
+                  aria-expanded={menuOpen}
+                  aria-controls="mobile-menu"
+                >
+                  <MenuIcon />
+                </button>
+              </Tooltip>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Check, ChevronDown, Globe } from 'lucide-react';
 import { LOCALES } from '../lib/i18n/types';
 import { useTranslation } from '../lib/i18n/use-translation';
+import Tooltip from './ui/tooltip';
 
 /**
  * Globe-icon dropdown for switching locales. Compact trigger that
@@ -74,23 +75,25 @@ const LocaleSwitcher: React.FC = () => {
 
   return (
     <div ref={containerRef} className="relative">
-      <button
-        ref={triggerRef}
-        type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        aria-label={t.a11y.switchLocale}
-        aria-haspopup="menu"
-        aria-expanded={open}
-        className="inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark text-slate-700 dark:text-slate-200 hover:border-primary hover:text-primary transition-colors text-sm font-semibold"
-      >
-        <Globe size={16} aria-hidden="true" />
-        <span>{current.short}</span>
-        <ChevronDown
-          size={14}
-          aria-hidden="true"
-          className={`transition-transform ${open ? 'rotate-180' : ''}`}
-        />
-      </button>
+      <Tooltip label={t.a11y.switchLocale} side="bottom">
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={() => setOpen((prev) => !prev)}
+          aria-label={t.a11y.switchLocale}
+          aria-haspopup="menu"
+          aria-expanded={open}
+          className="inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark text-slate-700 dark:text-slate-200 hover:border-primary hover:text-primary transition-colors text-sm font-semibold"
+        >
+          <Globe size={16} aria-hidden="true" />
+          <span>{current.short}</span>
+          <ChevronDown
+            size={14}
+            aria-hidden="true"
+            className={`transition-transform ${open ? 'rotate-180' : ''}`}
+          />
+        </button>
+      </Tooltip>
 
       {open && (
         <ul

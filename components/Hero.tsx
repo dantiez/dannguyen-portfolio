@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Code2, Globe, Mail, type LucideIcon } from 'lucide-react';
 import { useTranslation } from '../lib/i18n/use-translation';
 import { SOCIAL } from '../lib/social-links';
+import Tooltip from './ui/tooltip';
 import portraitAvif360 from '../images/optimized/portrait-360.avif';
 import portraitAvif720 from '../images/optimized/portrait-720.avif';
 import portraitWebp360 from '../images/optimized/portrait-360.webp';
@@ -161,15 +162,17 @@ interface SocialIconProps {
 }
 
 const SocialIcon: React.FC<SocialIconProps> = ({ Icon, label, href }) => (
-  <a
-    href={href}
-    aria-label={label}
-    target={href.startsWith('http') ? '_blank' : undefined}
-    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-    className="group flex items-center justify-center w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-primary hover:text-primary dark:hover:border-primary transition-all duration-300 hover:scale-110"
-  >
-    <Icon size={20} aria-hidden="true" />
-  </a>
+  <Tooltip label={label}>
+    <a
+      href={href}
+      aria-label={label}
+      target={href.startsWith('http') ? '_blank' : undefined}
+      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+      className="flex items-center justify-center w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-primary hover:text-primary dark:hover:border-primary transition-all duration-300 hover:scale-110"
+    >
+      <Icon size={20} aria-hidden="true" />
+    </a>
+  </Tooltip>
 );
 
 export default Hero;

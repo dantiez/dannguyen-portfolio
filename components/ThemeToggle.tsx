@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme } from '../lib/use-theme';
 import { useTranslation } from '../lib/i18n/use-translation';
+import Tooltip from './ui/tooltip';
 
 /**
  * Sun/moon icon toggle. Inline SVG to avoid loading an icon font for
@@ -13,13 +14,13 @@ const ThemeToggle: React.FC = () => {
   const label = isDark ? t.a11y.switchToLight : t.a11y.switchToDark;
 
   return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      aria-label={label}
-      title={label}
-      className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-colors"
-    >
+    <Tooltip label={label} side="bottom">
+      <button
+        type="button"
+        onClick={toggleTheme}
+        aria-label={label}
+        className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-colors"
+      >
       {isDark ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +53,8 @@ const ThemeToggle: React.FC = () => {
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       )}
-    </button>
+      </button>
+    </Tooltip>
   );
 };
 
