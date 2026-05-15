@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   AlertCircle,
   ArrowRight,
@@ -20,21 +20,47 @@ import { useTranslation } from '../lib/i18n/use-translation';
 import { SOCIAL } from '../lib/social-links';
 import { useContactForm } from '../lib/use-contact-form';
 
+const MESSAGE_MAX = 500;
+
 const Contact: React.FC = () => {
   const { t } = useTranslation();
   const c = t.contact;
   const f = c.form;
-  const { status, submit, isOffline } = useContactForm();
+  const { status, submit, reset, isOffline } = useContactForm();
   const honeypotRef = useRef<HTMLInputElement>(null);
+
+  // Live character counter for the message textarea.
+  const [messageLength, setMessageLength] = useState(0);
+
+  // Email validation: show the inline error only after the user has
+  // actually interacted with the field (blurred at least once), so a
+  // pristine empty form does not look angry.
+  const [emailTouched, setEmailTouched] = useState(false);
+  const [emailValid, setEmailValid] = useState(true);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit(e.currentTarget, { honeypot: honeypotRef.current?.value ?? '' });
   };
 
+  const handleSendAnother = () => {
+    reset();
+    setMessageLength(0);
+    setEmailTouched(false);
+    setEmailValid(true);
+  };
+
   const isSending = status === 'sending';
   const isSuccess = status === 'success';
   const isError = status === 'error';
+
+  const showEmailError = emailTouched && !emailValid;
+  const counterTone =
+    messageLength >= MESSAGE_MAX
+      ? 'text-red-500'
+      : messageLength > MESSAGE_MAX * 0.9
+        ? 'text-amber-500'
+        : 'text-slate-500 dark:text-slate-400';
 
   return (
     <div className="relative py-12 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -150,7 +176,20 @@ const Contact: React.FC = () => {
                 <div className="relative">
                   <input
                     name="email"
-                    className="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white h-12 pl-10 pr-4 placeholder:text-slate-400 dark:placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
+                    aria-invalid={showEmailError}
+                    aria-describedby={showEmailError ? 'email-error' : undefined}
+                    onBlur={(e) => {
+                      setEmailTouched(true);
+                      setEmailValid(e.target.validity.valid);
+                    }}
+                    onChange={(e) => {
+                      if (emailTouched) setEmailValid(e.target.validity.valid);
+                    }}
+                    className={`w-full rounded-lg bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white h-12 pl-10 pr-4 placeholder:text-slate-400 dark:placeholder:text-slate-400 focus:ring-1 focus:ring-primary transition-colors text-sm peer ${
+                      showEmailError
+                        ? 'border-red-500 focus:border-red-500'
+                        : 'border-slate-300 dark:border-slate-700 focus:border-primary'
+                    }`}
                     placeholder={f.emailPlaceholder}
                     required
                     type="email"
@@ -161,6 +200,11 @@ const Contact: React.FC = () => {
                     className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-400 peer-focus:text-primary transition-colors"
                   />
                 </div>
+                {showEmailError && (
+                  <p id="email-error" className="text-xs text-red-500 mt-1">
+                    {f.emailError}
+                  </p>
+                )}
               </label>
             </div>
 
@@ -195,16 +239,17 @@ const Contact: React.FC = () => {
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
                   {f.messageLabel} <span className="text-red-500">{f.required}</span>
                 </span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">
-                  {f.messageMaxHint}
+                <span className={`text-xs tabular-nums transition-colors ${counterTone}`}>
+                  {messageLength}/{MESSAGE_MAX} {f.charCounterLabel}
                 </span>
               </div>
               <textarea
                 name="message"
+                onChange={(e) => setMessageLength(e.target.value.length)}
                 className="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white min-h-[160px] p-4 placeholder:text-slate-400 dark:placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm resize-y"
                 placeholder={f.messagePlaceholder}
                 required
-                maxLength={500}
+                maxLength={MESSAGE_MAX}
               />
             </label>
 
@@ -236,13 +281,45 @@ const Contact: React.FC = () => {
             {/* Status messages (aria-live=polite for screen reader announce) */}
             <div aria-live="polite" className="min-h-[24px]">
               {isSuccess && (
-                <div className="flex items-start gap-2 text-sm text-green-600 dark:text-green-400">
-                  <CheckCircle2 size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
-                  <div>
-                    <p className="font-semibold">{f.successTitle}</p>
-                    <p className="text-xs text-green-700/80 dark:text-green-300/80">
-                      {f.successBody}
+                <div className="rounded-lg border border-green-500/30 bg-green-500/5 p-4 space-y-3">
+                  <div className="flex items-start gap-2 text-sm text-green-600 dark:text-green-400">
+                    <CheckCircle2 size={18} className="mt-0.5 shrink-0" aria-hidden="true" />
+                    <div>
+                      <p className="font-semibold">{f.successTitle}</p>
+                      <p className="text-xs text-green-700/80 dark:text-green-300/80 mt-1">
+                        {f.successBody}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 pl-7">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 w-full sm:w-auto">
+                      {f.successCtaHeading}
                     </p>
+                    <a
+                      href={SOCIAL.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 hover:border-primary hover:text-primary transition-colors"
+                    >
+                      <Linkedin size={14} aria-hidden="true" />
+                      {c.profiles.linkedin.title}
+                    </a>
+                    <a
+                      href={SOCIAL.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 hover:border-primary hover:text-primary transition-colors"
+                    >
+                      <Code2 size={14} aria-hidden="true" />
+                      {c.profiles.github.title}
+                    </a>
+                    <button
+                      type="button"
+                      onClick={handleSendAnother}
+                      className="text-xs text-slate-500 dark:text-slate-400 hover:text-primary underline underline-offset-2"
+                    >
+                      {f.sendAnother}
+                    </button>
                   </div>
                 </div>
               )}

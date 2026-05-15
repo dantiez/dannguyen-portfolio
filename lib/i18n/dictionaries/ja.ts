@@ -245,8 +245,12 @@ const ja: Dictionary = {
       messageMaxHint: '最大500文字',
       submit: '送信',
       sending: '送信中…',
+      sendAnother: '別のメッセージを送る',
+      emailError: '有効なメールアドレスを入力してください。',
+      charCounterLabel: '文字',
       successTitle: '送信完了 — 近日中にご連絡いたします。',
       successBody: 'お問い合わせありがとうございます。24時間以内に返信いたします。',
+      successCtaHeading: 'つながりましょう:',
       errorTitle: '送信に失敗しました。',
       errorBody:
         'エラーが発生しました。再度お試しいただくか、dannt4022@gmail.com まで直接メールをお送りください。',

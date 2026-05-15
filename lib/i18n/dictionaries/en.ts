@@ -244,8 +244,12 @@ const en = {
       messageMaxHint: 'Max 500 characters',
       submit: 'Send Message',
       sending: 'Sending…',
+      sendAnother: 'Send another message',
+      emailError: 'Please enter a valid email address.',
+      charCounterLabel: 'characters',
       successTitle: 'Message sent — talk soon.',
       successBody: "Thanks for reaching out. I'll reply within 24 hours.",
+      successCtaHeading: 'Connect with me:',
       errorTitle: 'Send failed.',
       errorBody:
         'Something went wrong. Please try again or email me directly at dannt4022@gmail.com.',
