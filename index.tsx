@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Analytics } from '@vercel/analytics/react';
 import App from './App';
 import { LocaleProvider } from './lib/i18n/locale-provider';
 import './index.css';
@@ -14,6 +15,7 @@ root.render(
   <React.StrictMode>
     <LocaleProvider>
       <App />
+      <Analytics />
     </LocaleProvider>
   </React.StrictMode>,
 );

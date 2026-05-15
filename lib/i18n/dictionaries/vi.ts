@@ -8,6 +8,8 @@ import type { Dictionary } from './en';
 const vi: Dictionary = {
   meta: {
     pageTitle: 'Dan Nguyen Tien - AI-Augmented QA Engineer',
+    description:
+      'Kỹ sư QA AI-Augmented với gần 2 năm kiểm thử hệ thống microservice. Postman, Selenium, Playwright, Claude và Copilot cho chu trình test nhanh và chính xác hơn.',
   },
 
   a11y: {
@@ -239,6 +241,13 @@ const vi: Dictionary = {
       messagePlaceholder: 'Mô tả dự án hoặc câu hỏi của bạn...',
       messageMaxHint: 'Tối đa 500 ký tự',
       submit: 'Gửi tin nhắn',
+      sending: 'Đang gửi…',
+      successTitle: 'Đã gửi — sẽ phản hồi sớm.',
+      successBody: 'Cảm ơn bạn đã liên hệ. Tôi sẽ trả lời trong vòng 24 giờ.',
+      errorTitle: 'Gửi thất bại.',
+      errorBody:
+        'Có lỗi xảy ra. Vui lòng thử lại hoặc gửi email trực tiếp tới dannt4022@gmail.com.',
+      offlineNote: 'Chức năng gửi form chưa được cấu hình — vui lòng email trực tiếp.',
       validationNote: 'Được bảo vệ bởi xác thực đầu vào tiêu chuẩn.',
       required: '*',
     },

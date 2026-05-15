@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
+  AlertCircle,
   ArrowRight,
   AtSign,
   CheckCircle2,
@@ -8,6 +9,7 @@ import {
   FileText,
   Globe,
   Linkedin,
+  Loader2,
   Mail,
   MapPin,
   Phone,
@@ -16,11 +18,23 @@ import {
 } from 'lucide-react';
 import { useTranslation } from '../lib/i18n/use-translation';
 import { SOCIAL } from '../lib/social-links';
+import { useContactForm } from '../lib/use-contact-form';
 
 const Contact: React.FC = () => {
   const { t } = useTranslation();
   const c = t.contact;
   const f = c.form;
+  const { status, submit, isOffline } = useContactForm();
+  const honeypotRef = useRef<HTMLInputElement>(null);
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    submit(e.currentTarget, { honeypot: honeypotRef.current?.value ?? '' });
+  };
+
+  const isSending = status === 'sending';
+  const isSuccess = status === 'success';
+  const isError = status === 'error';
 
   return (
     <div className="relative py-12 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -105,13 +119,24 @@ const Contact: React.FC = () => {
             aria-hidden="true"
             className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-blue-400 to-primary"
           />
-          <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col gap-6" onSubmit={onSubmit} noValidate>
+            {/* Honeypot — humans never see it; bots fill any visible input */}
+            <input
+              ref={honeypotRef}
+              type="text"
+              name="_gotcha"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute -left-[9999px] h-0 w-0 opacity-0"
+            />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <label className="flex flex-col flex-1 gap-2">
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
                   {f.nameLabel} <span className="text-red-500">{f.required}</span>
                 </span>
                 <input
+                  name="name"
                   className="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white h-12 px-4 placeholder:text-slate-400 dark:placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm"
                   placeholder={f.namePlaceholder}
                   required
@@ -124,6 +149,7 @@ const Contact: React.FC = () => {
                 </span>
                 <div className="relative">
                   <input
+                    name="email"
                     className="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white h-12 pl-10 pr-4 placeholder:text-slate-400 dark:placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
                     placeholder={f.emailPlaceholder}
                     required
@@ -144,6 +170,7 @@ const Contact: React.FC = () => {
               </span>
               <div className="relative">
                 <select
+                  name="subject"
                   defaultValue=""
                   className="w-full appearance-none rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white h-12 px-4 pr-10 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm"
                 >
@@ -173,6 +200,7 @@ const Contact: React.FC = () => {
                 </span>
               </div>
               <textarea
+                name="message"
                 className="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-surface-dark text-slate-900 dark:text-white min-h-[160px] p-4 placeholder:text-slate-400 dark:placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm resize-y"
                 placeholder={f.messagePlaceholder}
                 required
@@ -183,15 +211,58 @@ const Contact: React.FC = () => {
             <div className="pt-2">
               <button
                 type="submit"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 active:bg-blue-700 text-white font-semibold h-12 px-8 rounded-lg transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-primary/40"
+                disabled={isSending || isOffline}
+                aria-busy={isSending}
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 active:bg-blue-700 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-semibold h-12 px-8 rounded-lg transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-primary/40"
               >
-                <span>{f.submit}</span>
-                <Send
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform"
-                  aria-hidden="true"
-                />
+                {isSending ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" aria-hidden="true" />
+                    <span>{f.sending}</span>
+                  </>
+                ) : (
+                  <>
+                    <span>{f.submit}</span>
+                    <Send
+                      size={18}
+                      className="group-hover:translate-x-1 transition-transform"
+                      aria-hidden="true"
+                    />
+                  </>
+                )}
               </button>
+            </div>
+
+            {/* Status messages (aria-live=polite for screen reader announce) */}
+            <div aria-live="polite" className="min-h-[24px]">
+              {isSuccess && (
+                <div className="flex items-start gap-2 text-sm text-green-600 dark:text-green-400">
+                  <CheckCircle2 size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
+                  <div>
+                    <p className="font-semibold">{f.successTitle}</p>
+                    <p className="text-xs text-green-700/80 dark:text-green-300/80">
+                      {f.successBody}
+                    </p>
+                  </div>
+                </div>
+              )}
+              {isError && (
+                <div className="flex items-start gap-2 text-sm text-red-600 dark:text-red-400">
+                  <AlertCircle size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
+                  <div>
+                    <p className="font-semibold">{f.errorTitle}</p>
+                    <p className="text-xs text-red-700/80 dark:text-red-300/80">
+                      {f.errorBody}
+                    </p>
+                  </div>
+                </div>
+              )}
+              {isOffline && (
+                <div className="flex items-start gap-2 text-sm text-amber-600 dark:text-amber-400">
+                  <AlertCircle size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
+                  <p className="text-xs">{f.offlineNote}</p>
+                </div>
+              )}
             </div>
 
             <div className="flex items-center gap-2 justify-center sm:justify-start pt-2">

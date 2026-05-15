@@ -11,6 +11,8 @@ import type { Dictionary } from './en';
 const ja: Dictionary = {
   meta: {
     pageTitle: 'Dan Nguyen Tien - AI活用QAエンジニア',
+    description:
+      'マイクロサービスシステムを約2年間テストしてきたAI活用QAエンジニア。Postman、Selenium、Playwright、Claude、Copilot を駆使し、より速く正確なテストサイクルを実現。',
   },
 
   a11y: {
@@ -242,6 +244,13 @@ const ja: Dictionary = {
       messagePlaceholder: 'プロジェクトやお問い合わせ内容をご記入ください...',
       messageMaxHint: '最大500文字',
       submit: '送信',
+      sending: '送信中…',
+      successTitle: '送信完了 — 近日中にご連絡いたします。',
+      successBody: 'お問い合わせありがとうございます。24時間以内に返信いたします。',
+      errorTitle: '送信に失敗しました。',
+      errorBody:
+        'エラーが発生しました。再度お試しいただくか、dannt4022@gmail.com まで直接メールをお送りください。',
+      offlineNote: 'フォーム送信機能は未設定です — 直接メールでご連絡ください。',
       validationNote: '標準的な入力検証で保護されています。',
       required: '*',
     },

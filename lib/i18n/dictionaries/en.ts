@@ -10,6 +10,8 @@
 const en = {
   meta: {
     pageTitle: 'Dan Nguyen Tien - AI-Augmented QA Engineer',
+    description:
+      'AI-Augmented QA Engineer with nearly 2 years testing microservice systems. Postman, Selenium, Playwright, Claude, and Copilot for faster, sharper test cycles.',
   },
 
   a11y: {
@@ -241,6 +243,13 @@ const en = {
       messagePlaceholder: 'Describe your project or inquiry...',
       messageMaxHint: 'Max 500 characters',
       submit: 'Send Message',
+      sending: 'Sending…',
+      successTitle: 'Message sent — talk soon.',
+      successBody: "Thanks for reaching out. I'll reply within 24 hours.",
+      errorTitle: 'Send failed.',
+      errorBody:
+        'Something went wrong. Please try again or email me directly at dannt4022@gmail.com.',
+      offlineNote: 'Form delivery not configured yet — please email me directly.',
       validationNote: 'Protected by standard input validation.',
       required: '*',
     },
