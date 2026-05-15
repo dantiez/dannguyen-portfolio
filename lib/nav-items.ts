@@ -8,6 +8,7 @@ export const NAV_ORDER = [
   'about',
   'achievements',
   'careertimeline',
+  'aiworkflow',
   'skills',
   'contact',
 ] as const;
@@ -25,6 +26,7 @@ export function getNavItems(
     { id: 'about', label: t.nav.about },
     { id: 'achievements', label: t.nav.achievements },
     { id: 'careertimeline', label: t.nav.career },
+    { id: 'aiworkflow', label: t.nav.aiWorkflow },
     { id: 'skills', label: t.nav.skills },
     { id: 'contact', label: t.nav.contact },
   ];

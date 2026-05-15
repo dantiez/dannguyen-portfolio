@@ -9,7 +9,7 @@
  */
 const en = {
   meta: {
-    pageTitle: 'Dan Nguyen Tien - QA/QC Engineer',
+    pageTitle: 'Dan Nguyen Tien - AI-Augmented QA Engineer',
   },
 
   a11y: {
@@ -28,6 +28,7 @@ const en = {
     about: 'About',
     achievements: 'Achievements',
     career: 'Career',
+    aiWorkflow: 'AI Workflow',
     skills: 'Skills',
     contact: 'Contact',
     downloadCv: 'Download CV',
@@ -36,9 +37,9 @@ const en = {
 
   hero: {
     welcomeChip: 'Welcome to my portfolio',
-    role: '<QA/QC Engineer>',
-    specialty: 'Automation & Manual Testing Specialist',
-    bio: "Quality Assurance Tester with nearly 2 years of experience in manual testing for microservice-based systems. Skilled in requirement analysis, test case design, execution, and defect tracking, with hands-on API testing using Postman and Mockoon. Experienced in database verification (MySQL, PostgreSQL) and basic performance testing with JMeter.",
+    role: '<AI-Augmented QA Engineer/>',
+    specialty: 'Productivity-First Testing · LLM-Powered Workflow',
+    bio: 'AI-Augmented QA Engineer with nearly 2 years testing microservice-based systems. Combine traditional QA rigor — requirement analysis, test case design, API verification with Postman/Mockoon, database checks (MySQL/PostgreSQL), and JMeter performance baselines — with a modern AI-augmented workflow using Claude and Copilot to accelerate test authoring, log triage, and bug-report quality. Currently expanding into Playwright via AI-paired learning sessions with Claude Code.',
     ctaPrimary: 'View Career',
     ctaSecondary: 'Get in Touch',
     statusBadge: 'Available for work',
@@ -50,12 +51,12 @@ const en = {
   },
 
   achievements: {
-    chip: 'QC/QA Engineer',
+    chip: 'AI-Augmented QA Engineer',
     yearsCount: '2',
     yearsLabel: 'Years of Experience',
     tagline: 'Ensuring software reliability through rigorous',
-    taglineHighlight: 'Manual & Automated Testing',
-    taglineSuffix: ". I break code so you don't have to.",
+    taglineHighlight: 'AI-Augmented Testing workflows',
+    taglineSuffix: ". I break code so you don't have to — faster.",
     stats: {
       projects: 'Projects Delivered',
       bugs: 'Bugs Reported',
@@ -76,8 +77,9 @@ const en = {
           'Engaged in full-cycle testing for client projects, ensuring high-quality deliverables.',
           'Collaborating with cross-functional teams to resolve complex issues and improve product stability.',
           'Continuing to refine automation skills and contribute to internal QA process improvements.',
+          'Pioneered an AI-augmented QA workflow on the team — Claude for test case scaffolding from user stories, Copilot for Selenium script drafting, AI-powered log triage — driving a noticeable productivity gain on routine authoring work.',
         ],
-        tags: ['Automation', 'Team Collaboration', 'Quality Control'],
+        tags: ['Automation', 'AI Workflow', 'Quality Control'],
       },
       hopeeProbation: {
         title: 'Probation',
@@ -127,6 +129,34 @@ const en = {
     },
   },
 
+  aiWorkflow: {
+    title: 'AI-Augmented Workflow',
+    subtitle:
+      'How I leverage AI tools to ship higher-quality test assets, faster — without sacrificing rigor.',
+    patterns: {
+      testCaseScaffolding: {
+        title: 'Test Case Scaffolding',
+        desc: 'Given a user story and acceptance criteria, prompt Claude to draft Gherkin scenarios covering happy path, edge cases, boundary values, and negative paths. Always reviewed and augmented with domain context.',
+      },
+      logTriage: {
+        title: 'AI Log Triage',
+        desc: 'Parse failing CI logs with Claude to extract root-cause hypotheses, cluster stack traces, and recommend Jira severity. Faster signal for sprint demos and standups.',
+      },
+      syntheticData: {
+        title: 'Synthetic Test Data',
+        desc: 'Generate boundary value datasets and edge-case payloads for API testing — plugged directly into Postman and Mockoon test suites.',
+      },
+      multilangSync: {
+        title: 'Multi-language Test Asset Sync',
+        desc: 'Translate test cases and bug reports across EN / VI / JA using Claude with a custom QA glossary — useful for cross-region engineering teams.',
+      },
+      pairedLearning: {
+        title: 'AI-Paired Framework Mastery',
+        desc: 'Self-directed learning of Selenium and Playwright through Claude Code pair-programming: scaffold Page Object Model, debug async test failures, refactor flaky tests. Faster ramp-up vs traditional tutorial-based learning.',
+      },
+    },
+  },
+
   skills: {
     title: 'Skills Summary',
     cards: {
@@ -142,8 +172,8 @@ const en = {
       },
       process: {
         title: 'Process',
-        desc: 'Agile/Scrum, SDLC, STLC, Bug Life Cycle, Sprint Planning',
-        tags: ['Agile', 'Scrum'],
+        desc: 'Agile/Scrum, SDLC, STLC, Bug Life Cycle, Sprint Planning — AI-augmented authoring & triage',
+        tags: ['Agile', 'AI-First'],
       },
       api: {
         title: 'API & Backend',
@@ -157,8 +187,13 @@ const en = {
       },
       automation: {
         title: 'Automation',
-        desc: 'Selenium Webdriver basics, Python/Java syntax, Page Object Model concepts',
-        tags: ['Selenium', 'Python'],
+        desc: 'Selenium WebDriver and Playwright (TypeScript) — Page Object Model, async patterns. Actively expanding via AI-paired learning sessions with Claude Code.',
+        tags: ['Selenium', 'Playwright', 'Claude Code'],
+      },
+      aiWorkflow: {
+        title: 'AI-Augmented Workflow',
+        desc: 'Leveraging Claude and Copilot daily for test case generation, defect triage, synthetic data, and cross-language test asset translation.',
+        tags: ['Claude', 'Copilot', 'Prompt Engineering'],
       },
       tools: {
         title: 'Tools',

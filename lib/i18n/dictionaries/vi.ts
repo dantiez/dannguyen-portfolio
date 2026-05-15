@@ -7,7 +7,7 @@ import type { Dictionary } from './en';
  */
 const vi: Dictionary = {
   meta: {
-    pageTitle: 'Dan Nguyen Tien - Kỹ sư QA/QC',
+    pageTitle: 'Dan Nguyen Tien - AI-Augmented QA Engineer',
   },
 
   a11y: {
@@ -26,6 +26,7 @@ const vi: Dictionary = {
     about: 'Giới thiệu',
     achievements: 'Thành tích',
     career: 'Sự nghiệp',
+    aiWorkflow: 'AI Workflow',
     skills: 'Kỹ năng',
     contact: 'Liên hệ',
     downloadCv: 'Tải CV',
@@ -34,9 +35,9 @@ const vi: Dictionary = {
 
   hero: {
     welcomeChip: 'Chào mừng đến portfolio của tôi',
-    role: '<Kỹ sư QA/QC>',
-    specialty: 'Chuyên gia Kiểm thử Tự động & Thủ công',
-    bio: 'Kỹ sư Đảm bảo Chất lượng với gần 2 năm kinh nghiệm kiểm thử thủ công cho hệ thống microservice. Thành thạo phân tích yêu cầu, thiết kế và thực thi test case, theo dõi defect, cùng kinh nghiệm thực chiến kiểm thử API với Postman và Mockoon. Đã làm việc với kiểm tra database (MySQL, PostgreSQL) và kiểm thử hiệu năng cơ bản với JMeter.',
+    role: '<AI-Augmented QA Engineer/>',
+    specialty: 'Kiểm thử Hiệu suất cao · Quy trình tích hợp LLM',
+    bio: 'Kỹ sư QA AI-Augmented với gần 2 năm kinh nghiệm kiểm thử hệ thống microservice. Kết hợp nền tảng QA truyền thống — phân tích yêu cầu, thiết kế test case, kiểm thử API với Postman/Mockoon, kiểm tra database (MySQL/PostgreSQL), performance baseline với JMeter — cùng quy trình AI-augmented hiện đại sử dụng Claude và Copilot để tăng tốc viết test case, phân tích log và nâng chất lượng báo cáo bug. Hiện đang mở rộng kỹ năng sang Playwright thông qua các phiên học cặp đôi AI với Claude Code.',
     ctaPrimary: 'Xem sự nghiệp',
     ctaSecondary: 'Liên hệ ngay',
     statusBadge: 'Sẵn sàng nhận việc',
@@ -48,12 +49,12 @@ const vi: Dictionary = {
   },
 
   achievements: {
-    chip: 'Kỹ sư QC/QA',
+    chip: 'Kỹ sư QA AI-Augmented',
     yearsCount: '2',
     yearsLabel: 'Năm Kinh nghiệm',
     tagline: 'Đảm bảo phần mềm vận hành ổn định qua quy trình',
-    taglineHighlight: 'Kiểm thử Thủ công & Tự động',
-    taglineSuffix: ' nghiêm ngặt. Tôi tìm bug để bạn không phải lo.',
+    taglineHighlight: 'Kiểm thử AI-Augmented',
+    taglineSuffix: ' nghiêm ngặt. Tôi tìm bug để bạn không phải lo — nhanh hơn.',
     stats: {
       projects: 'Dự án đã hoàn thành',
       bugs: 'Bug đã báo cáo',
@@ -74,8 +75,9 @@ const vi: Dictionary = {
           'Tham gia kiểm thử toàn vòng đời cho các dự án khách hàng, đảm bảo chất lượng bàn giao cao.',
           'Phối hợp với các team liên chức năng để xử lý vấn đề phức tạp và nâng cao độ ổn định sản phẩm.',
           'Tiếp tục phát triển kỹ năng automation và đóng góp cải tiến quy trình QA nội bộ.',
+          'Tiên phong áp dụng quy trình QA AI-augmented cho team — Claude để dựng test case từ user story, Copilot để viết Selenium script, AI hỗ trợ phân tích log — mang lại cải thiện rõ rệt về năng suất trong các công việc viết test thường ngày.',
         ],
-        tags: ['Automation', 'Hợp tác nhóm', 'Quality Control'],
+        tags: ['Automation', 'AI Workflow', 'Quality Control'],
       },
       hopeeProbation: {
         title: 'Thử việc',
@@ -125,6 +127,34 @@ const vi: Dictionary = {
     },
   },
 
+  aiWorkflow: {
+    title: 'Quy trình AI-Augmented',
+    subtitle:
+      'Cách tôi tận dụng công cụ AI để bàn giao test asset chất lượng cao hơn, nhanh hơn — mà vẫn giữ độ nghiêm ngặt.',
+    patterns: {
+      testCaseScaffolding: {
+        title: 'Dựng khung Test Case',
+        desc: 'Từ user story và acceptance criteria, dùng Claude để dựng Gherkin scenarios phủ happy path, edge case, boundary value và negative path. Luôn review và bổ sung domain context.',
+      },
+      logTriage: {
+        title: 'Phân tích Log bằng AI',
+        desc: 'Dùng Claude phân tích CI log lỗi để rút ra giả thuyết root-cause, cluster stack trace và đề xuất mức Jira severity. Tín hiệu nhanh cho sprint demo và stand-up.',
+      },
+      syntheticData: {
+        title: 'Sinh Test Data tổng hợp',
+        desc: 'Generate dataset boundary value và payload edge-case cho API testing — cắm trực tiếp vào test suite Postman và Mockoon.',
+      },
+      multilangSync: {
+        title: 'Đồng bộ Test Asset đa ngôn ngữ',
+        desc: 'Dịch test case và bug report giữa EN / VI / JA bằng Claude với glossary QA tùy chỉnh — hữu ích cho team kỹ thuật đa khu vực.',
+      },
+      pairedLearning: {
+        title: 'Học Framework cặp đôi với AI',
+        desc: 'Tự học Selenium và Playwright qua các phiên cặp đôi với Claude Code: dựng Page Object Model, debug test async failure, refactor flaky test. Ramp-up nhanh hơn so với học theo tutorial truyền thống.',
+      },
+    },
+  },
+
   skills: {
     title: 'Tổng quan Kỹ năng',
     cards: {
@@ -140,8 +170,8 @@ const vi: Dictionary = {
       },
       process: {
         title: 'Quy trình',
-        desc: 'Agile/Scrum, SDLC, STLC, Bug Life Cycle, Sprint Planning',
-        tags: ['Agile', 'Scrum'],
+        desc: 'Agile/Scrum, SDLC, STLC, Bug Life Cycle, Sprint Planning — viết test và phân tích log có hỗ trợ AI',
+        tags: ['Agile', 'AI-First'],
       },
       api: {
         title: 'API & Backend',
@@ -155,8 +185,13 @@ const vi: Dictionary = {
       },
       automation: {
         title: 'Automation',
-        desc: 'Cơ bản Selenium WebDriver, cú pháp Python/Java, khái niệm Page Object Model',
-        tags: ['Selenium', 'Python'],
+        desc: 'Selenium WebDriver và Playwright (TypeScript) — Page Object Model, async pattern. Đang chủ động mở rộng qua các phiên học cặp đôi với Claude Code.',
+        tags: ['Selenium', 'Playwright', 'Claude Code'],
+      },
+      aiWorkflow: {
+        title: 'Quy trình AI-Augmented',
+        desc: 'Sử dụng Claude và Copilot hàng ngày để generate test case, phân tích defect, sinh synthetic data và dịch test asset đa ngôn ngữ.',
+        tags: ['Claude', 'Copilot', 'Prompt Engineering'],
       },
       tools: {
         title: 'Công cụ',

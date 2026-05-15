@@ -5,6 +5,7 @@ import {
   FileSearch,
   ListChecks,
   MessageSquare,
+  Sparkles,
   Webhook,
   Workflow,
   Wrench,
@@ -28,6 +29,7 @@ const SKILLS_STATIC: SkillStaticEntry[] = [
   { key: 'api', Icon: Webhook },
   { key: 'database', Icon: Database },
   { key: 'automation', Icon: Bot },
+  { key: 'aiWorkflow', Icon: Sparkles },
   { key: 'tools', Icon: Wrench },
   { key: 'communication', Icon: MessageSquare },
 ];

@@ -18,7 +18,14 @@ describe('App', () => {
 
   it('renders main landmark with all section anchors', () => {
     const { container } = renderApp();
-    const ids = ['about', 'achievements', 'careertimeline', 'skills', 'contact'];
+    const ids = [
+      'about',
+      'achievements',
+      'careertimeline',
+      'aiworkflow',
+      'skills',
+      'contact',
+    ];
     ids.forEach((id) => {
       expect(container.querySelector(`#${id}`)).not.toBeNull();
     });
