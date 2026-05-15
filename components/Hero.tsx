@@ -9,6 +9,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { useTranslation } from '../lib/i18n/use-translation';
+import { SOCIAL } from '../lib/social-links';
 import portraitAvif360 from '../images/optimized/portrait-360.avif';
 import portraitAvif720 from '../images/optimized/portrait-720.avif';
 import portraitWebp360 from '../images/optimized/portrait-360.webp';
@@ -94,14 +95,14 @@ const Hero: React.FC = () => {
             </div>
 
             <div className="flex items-center justify-center lg:justify-start gap-6 mt-8 pt-8 border-t border-slate-200 dark:border-slate-800/50">
-              <SocialIcon Icon={Globe} label={hero.social.linkedin} href="#" />
-              <SocialIcon Icon={Code2} label={hero.social.github} href="#" />
+              <SocialIcon Icon={Globe} label={hero.social.linkedin} href={SOCIAL.linkedin} />
+              <SocialIcon Icon={Code2} label={hero.social.github} href={SOCIAL.github} />
               <a
-                href="mailto:dannt4022@gmail.com"
+                href={`mailto:${SOCIAL.email}`}
                 className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 <Mail size={20} aria-hidden="true" />
-                <span className="hidden sm:inline">dannt4022@gmail.com</span>
+                <span className="hidden sm:inline">{SOCIAL.email}</span>
               </a>
             </div>
           </div>

@@ -15,6 +15,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { useTranslation } from '../lib/i18n/use-translation';
+import { SOCIAL } from '../lib/social-links';
 
 const Contact: React.FC = () => {
   const { t } = useTranslation();
@@ -56,14 +57,14 @@ const Contact: React.FC = () => {
             <ContactInfoCard
               Icon={Mail}
               label={c.info.emailLabel}
-              value="dannt4022@gmail.com"
-              href="mailto:dannt4022@gmail.com"
+              value={SOCIAL.email}
+              href={`mailto:${SOCIAL.email}`}
             />
             <ContactInfoCard
               Icon={Phone}
               label={c.info.phoneLabel}
-              value="+84 907281361"
-              href="tel:+84907281361"
+              value="+84 907 281 361"
+              href={`tel:${SOCIAL.phone}`}
             />
             <ContactInfoCard
               Icon={MapPin}
@@ -87,13 +88,13 @@ const Contact: React.FC = () => {
                 Icon={Linkedin}
                 title={c.profiles.linkedin.title}
                 subtitle={c.profiles.linkedin.subtitle}
-                href="#"
+                href={SOCIAL.linkedin}
               />
               <LinkCard
                 Icon={Code2}
                 title={c.profiles.github.title}
                 subtitle={c.profiles.github.subtitle}
-                href="#"
+                href={SOCIAL.github}
               />
             </div>
           </div>
