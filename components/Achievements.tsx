@@ -1,4 +1,5 @@
 import React from 'react';
+import { BadgeCheck, Package, Bug, ClipboardList } from 'lucide-react';
 import StatCard from './ui/stat-card';
 
 /**
@@ -15,12 +16,7 @@ const Achievements: React.FC = () => {
         />
         <div className="relative z-10 flex flex-col items-center max-w-4xl text-center">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 backdrop-blur-sm">
-            <span
-              className="material-symbols-outlined text-[18px] text-primary"
-              aria-hidden="true"
-            >
-              verified
-            </span>
+            <BadgeCheck size={16} className="text-primary" aria-hidden="true" />
             <span className="text-sm font-semibold text-primary">
               QC/QA Engineer
             </span>
@@ -46,14 +42,10 @@ const Achievements: React.FC = () => {
       <section className="py-12 px-4 sm:px-8 lg:px-40 bg-background-light dark:bg-background-dark">
         <div className="mx-auto max-w-[960px]">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <StatCard Icon={Package} value="2+" label="Projects Delivered" />
+            <StatCard Icon={Bug} value="200+" label="Bugs Reported" />
             <StatCard
-              icon="deployed_code"
-              value="2+"
-              label="Projects Delivered"
-            />
-            <StatCard icon="bug_report" value="200+" label="Bugs Reported" />
-            <StatCard
-              icon="assignment"
+              Icon={ClipboardList}
               value="500+"
               label="Test Cases Written"
             />

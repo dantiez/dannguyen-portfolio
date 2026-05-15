@@ -1,8 +1,9 @@
 import React from 'react';
+import type { LucideIcon } from 'lucide-react';
 
 interface TagProps {
   children: React.ReactNode;
-  icon?: string;
+  Icon?: LucideIcon;
   variant?: 'default' | 'primary';
 }
 
@@ -12,7 +13,7 @@ interface TagProps {
  *   - default: muted slate
  *   - primary: blue-tinted, used for "current" / highlighted items
  */
-const Tag: React.FC<TagProps> = ({ children, icon, variant = 'default' }) => {
+const Tag: React.FC<TagProps> = ({ children, Icon, variant = 'default' }) => {
   const variantClasses =
     variant === 'primary'
       ? 'bg-primary/10 text-primary border-primary/20'
@@ -22,11 +23,7 @@ const Tag: React.FC<TagProps> = ({ children, icon, variant = 'default' }) => {
     <span
       className={`inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-medium ${variantClasses}`}
     >
-      {icon && (
-        <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
-          {icon}
-        </span>
-      )}
+      {Icon && <Icon size={14} aria-hidden="true" />}
       {children}
     </span>
   );

@@ -1,8 +1,19 @@
 import React from 'react';
+import {
+  Bot,
+  Database,
+  FileSearch,
+  ListChecks,
+  MessageSquare,
+  Webhook,
+  Workflow,
+  Wrench,
+  type LucideIcon,
+} from 'lucide-react';
 import Tag from './ui/tag';
 
 interface SkillEntry {
-  icon: string;
+  Icon: LucideIcon;
   title: string;
   desc: string;
   tags: string[];
@@ -10,49 +21,49 @@ interface SkillEntry {
 
 const SKILLS: SkillEntry[] = [
   {
-    icon: 'rule',
+    Icon: ListChecks,
     title: 'Testing Knowledge',
     desc: 'Functional, Regression, Smoke, Sanity, UAT, Black Box Testing, Exploratory Testing',
     tags: ['Functional', 'Regression'],
   },
   {
-    icon: 'plagiarism',
+    Icon: FileSearch,
     title: 'Requirement Analysis',
     desc: 'User Stories, Acceptance Criteria, Risk Analysis, Traceability Matrix',
     tags: ['Jira', 'Confluence'],
   },
   {
-    icon: 'account_tree',
+    Icon: Workflow,
     title: 'Process',
     desc: 'Agile/Scrum, SDLC, STLC, Bug Life Cycle, Sprint Planning',
     tags: ['Agile', 'Scrum'],
   },
   {
-    icon: 'api',
+    Icon: Webhook,
     title: 'API & Backend',
     desc: 'REST API, Postman, JSON/XML validation, Status Codes verification',
     tags: ['Postman', 'REST'],
   },
   {
-    icon: 'database',
+    Icon: Database,
     title: 'Database',
     desc: 'SQL Queries, Data Integrity, Inner/Outer Joins, Data Migration testing',
     tags: ['MySQL', 'PostgreSQL'],
   },
   {
-    icon: 'smart_toy',
+    Icon: Bot,
     title: 'Automation',
     desc: 'Selenium Webdriver basics, Python/Java syntax, Page Object Model concepts',
     tags: ['Selenium', 'Python'],
   },
   {
-    icon: 'build',
+    Icon: Wrench,
     title: 'Tools',
     desc: 'Jira, Git, Jenkins, TestRail, Chrome DevTools',
     tags: ['Git', 'Jenkins'],
   },
   {
-    icon: 'forum',
+    Icon: MessageSquare,
     title: 'Communication',
     desc: 'Cross-functional collaboration, Defect Reporting, Technical Documentation',
     tags: ['Slack', 'Zoom'],
@@ -78,13 +89,11 @@ const Skills: React.FC = () => {
   );
 };
 
-const SkillCard: React.FC<SkillEntry> = ({ icon, title, desc, tags }) => (
+const SkillCard: React.FC<SkillEntry> = ({ Icon, title, desc, tags }) => (
   <div className="group flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-[#3b4754] bg-white dark:bg-surface-dark p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(19,127,236,0.1)] hover:-translate-y-1">
     <div className="flex items-center gap-3">
       <div className="flex items-center justify-center size-10 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-        <span className="material-symbols-outlined" aria-hidden="true">
-          {icon}
-        </span>
+        <Icon size={20} aria-hidden="true" />
       </div>
       <h3 className="text-base font-bold uppercase tracking-wide text-slate-800 dark:text-white">
         {title}

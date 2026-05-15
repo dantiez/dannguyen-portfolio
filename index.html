@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dan Nguyen Tien - QA/QC Engineer</title>
+    <script>
+      // Apply theme before paint to prevent FOUC. Mirrors readInitialTheme() in lib/use-theme.ts.
+      // Precedence: explicit user choice > OS preference > brand default (dark).
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          if (stored === 'light') return;
+          if (stored === 'dark') {
+            document.documentElement.classList.add('dark');
+            return;
+          }
+          var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          if (!prefersLight) document.documentElement.classList.add('dark');
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
   </head>

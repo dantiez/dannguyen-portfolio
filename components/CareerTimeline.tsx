@@ -1,9 +1,17 @@
 import React from 'react';
+import {
+  Award,
+  BadgeCheck,
+  Code2,
+  GraduationCap,
+  Globe,
+  type LucideIcon,
+} from 'lucide-react';
 import SectionHeader from './ui/section-header';
 import Tag from './ui/tag';
 
 interface TimelineEntry {
-  icon: string;
+  Icon: LucideIcon;
   title: string;
   company: string;
   date: string;
@@ -15,7 +23,7 @@ interface TimelineEntry {
 
 const TIMELINE_ENTRIES: TimelineEntry[] = [
   {
-    icon: 'workspace_premium',
+    Icon: Award,
     title: 'Fresher / Junior',
     company: 'HOPEE Co., Ltd.',
     date: '11/2024 - Present',
@@ -28,7 +36,7 @@ const TIMELINE_ENTRIES: TimelineEntry[] = [
     tags: ['Automation', 'Team Collaboration', 'Quality Control'],
   },
   {
-    icon: 'verified',
+    Icon: BadgeCheck,
     title: 'Probation',
     company: 'HOPEE Co., Ltd.',
     date: '09/2024 - 11/2024',
@@ -40,7 +48,7 @@ const TIMELINE_ENTRIES: TimelineEntry[] = [
     tags: ['Regression Testing', 'Bug Reporting'],
   },
   {
-    icon: 'school',
+    Icon: GraduationCap,
     title: 'Intern',
     company: 'HOPEE Co., Ltd.',
     date: '06/2024 - 08/2024',
@@ -52,7 +60,7 @@ const TIMELINE_ENTRIES: TimelineEntry[] = [
     tags: ['Manual Testing', 'Documentation', 'Agile'],
   },
   {
-    icon: 'code',
+    Icon: Code2,
     title: 'Computer Education',
     company: 'FPT Aptech',
     date: '07/2023 - 05/2024',
@@ -65,7 +73,7 @@ const TIMELINE_ENTRIES: TimelineEntry[] = [
     tags: ['Software Development', 'Databases', 'Testing Fundamentals'],
   },
   {
-    icon: 'public',
+    Icon: Globe,
     title: 'International Student',
     company: 'Japan',
     date: '2019 - 2023',
@@ -106,7 +114,7 @@ interface TimelineItemProps extends TimelineEntry {
 }
 
 const TimelineItem: React.FC<TimelineItemProps> = ({
-  icon,
+  Icon,
   title,
   company,
   date,
@@ -130,9 +138,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
         <div
           className={`flex h-12 w-12 items-center justify-center rounded-full ring-4 ring-slate-50 dark:ring-[#151a21] z-10 border transition-all duration-300 ${nodeClasses}`}
         >
-          <span className="material-symbols-outlined text-[24px]" aria-hidden="true">
-            {icon}
-          </span>
+          <Icon size={22} aria-hidden="true" />
         </div>
         {!last && (
           <div className="w-[2px] bg-slate-200 dark:bg-slate-700 h-full grow my-2 group-hover:bg-primary/30 transition-colors" />
@@ -156,7 +162,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
                 {company}
               </p>
               {subtext && (
-                <p className="text-slate-400 dark:text-slate-500 text-sm mt-1">
+                <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
                   {subtext}
                 </p>
               )}

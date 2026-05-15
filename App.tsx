@@ -10,8 +10,11 @@ import Footer from './components/Footer';
 const App: React.FC = () => {
   return (
     <div className="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark">
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
       <Navbar />
-      <main className="flex-grow flex flex-col w-full">
+      <main id="main-content" tabIndex={-1} className="flex-grow flex flex-col w-full">
         <section id="about">
           <Hero />
         </section>

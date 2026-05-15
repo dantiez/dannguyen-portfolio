@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from 'react';
-
-interface NavItem {
-  id: string;
-  label: string;
-}
-
-const NAV_ITEMS: NavItem[] = [
-  { id: 'about', label: 'About' },
-  { id: 'achievements', label: 'Achievements' },
-  { id: 'careertimeline', label: 'Career' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
-];
+import React, { useMemo, useState, useEffect } from 'react';
+import { NAV_ITEMS } from '../lib/nav-items';
+import { useScrollSpy } from '../lib/use-scroll-spy';
+import ThemeToggle from './ThemeToggle';
+import MobileMenu from './MobileMenu';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const sectionIds = useMemo(() => NAV_ITEMS.map((i) => i.id), []);
+  const activeId = useScrollSpy(sectionIds);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,76 +19,124 @@ const Navbar: React.FC = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? 'border-b border-slate-200 dark:border-[#283039] bg-white/90 dark:bg-background-dark/90 backdrop-blur-md shadow-lg'
-          : 'bg-transparent border-b border-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <button
-            type="button"
-            className="flex items-center gap-3 cursor-pointer"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            aria-label="Scroll to top"
-          >
-            <div className="bg-primary/10 dark:bg-primary/20 p-1.5 rounded-lg text-primary">
-              <span
-                className="material-symbols-outlined text-2xl font-bold"
-                aria-hidden="true"
-              >
-                bug_report
+    <>
+      <header
+        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+          scrolled
+            ? 'border-b border-slate-200 dark:border-[#283039] bg-white/90 dark:bg-background-dark/90 backdrop-blur-md shadow-lg'
+            : 'bg-transparent border-b border-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <button
+              type="button"
+              className="flex items-center gap-3 cursor-pointer"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              aria-label="Scroll to top"
+            >
+              <div className="bg-primary/10 dark:bg-primary/20 p-1.5 rounded-lg text-primary">
+                <BugIcon />
+              </div>
+              <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white hidden sm:block">
+                DAN NGUYEN TIEN
               </span>
-            </div>
-            <h1 className="text-lg font-bold tracking-tight text-slate-900 dark:text-white hidden sm:block">
-              DAN NGUYEN TIEN
-            </h1>
-          </button>
+            </button>
 
-          <nav className="hidden md:flex items-center space-x-8">
-            {NAV_ITEMS.map((item) => (
+            <nav className="hidden md:flex items-center space-x-6">
+              {NAV_ITEMS.map((item) => {
+                const isActive = activeId === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => scrollToSection(item.id)}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={`text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'text-primary'
+                        : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+              <ThemeToggle />
+              <a
+                href="/resume.pdf"
+                download
+                className="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/25 active:scale-95"
+              >
+                Download CV
+              </a>
+            </nav>
+
+            <div className="md:hidden flex items-center gap-2">
+              <ThemeToggle />
               <button
-                key={item.id}
                 type="button"
-                onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                onClick={() => setMenuOpen(true)}
+                className="text-slate-600 dark:text-slate-300 p-2"
+                aria-label="Open menu"
+                aria-expanded={menuOpen}
+                aria-controls="mobile-menu"
               >
-                {item.label}
+                <MenuIcon />
               </button>
-            ))}
-            <button
-              type="button"
-              className="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/25 active:scale-95"
-            >
-              Download CV
-            </button>
-          </nav>
-
-          {/* Mobile menu trigger (drawer wired up in Phase 3) */}
-          <div className="md:hidden flex items-center">
-            <button
-              type="button"
-              className="text-slate-600 dark:text-slate-300 p-2"
-              aria-label="Open menu"
-            >
-              <span className="material-symbols-outlined" aria-hidden="true">
-                menu
-              </span>
-            </button>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      <MobileMenu
+        isOpen={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        items={NAV_ITEMS}
+        activeId={activeId}
+      />
+    </>
   );
 };
+
+const BugIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="m8 2 1.88 1.88M14.12 3.88 16 2M9 7.13v-1a3.003 3.003 0 1 1 6 0v1M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6M12 20v-9M6.53 9C4.6 8.8 3 7.1 3 5M6 13H2M3 21c0-2.1 1.7-3.9 3.8-4M20.97 5c0 2.1-1.6 3.8-3.5 4M22 13h-4M17.2 17c2.1.1 3.8 1.9 3.8 4" />
+  </svg>
+);
+
+const MenuIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="18" x2="21" y2="18" />
+  </svg>
+);
 
 export default Navbar;
