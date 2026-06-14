@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { ArrowRight, Code2, Globe, Mail, type LucideIcon } from 'lucide-react';
 import { useTranslation } from '../lib/i18n/use-translation';
 import { SOCIAL } from '../lib/social-links';
+import { useReducedMotion } from '../lib/use-reduced-motion';
 import Tooltip from './ui/tooltip';
+
+// Heavy WebGL bundle (three + fiber) — split into its own chunk and only
+// fetched when the decorative sphere is actually rendered.
+const HeroOrbitCanvas = lazy(() => import('./hero-orbit-canvas'));
+
+const DESKTOP_QUERY = '(min-width: 1024px)';
+
+/**
+ * The 3D portrait backdrop is purely decorative, so it is gated to large
+ * viewports (where the portrait column is visible) and disabled for visitors
+ * who prefer reduced motion.
+ */
+function useHeroOrbitEnabled(): boolean {
+  const reducedMotion = useReducedMotion();
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mql = window.matchMedia(DESKTOP_QUERY);
+    const onChange = () => setIsDesktop(mql.matches);
+    onChange();
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  }, []);
+
+  return isDesktop && !reducedMotion;
+}
 import portraitAvif360 from '../images/optimized/portrait-360.avif';
 import portraitAvif720 from '../images/optimized/portrait-720.avif';
 import portraitWebp360 from '../images/optimized/portrait-360.webp';
@@ -13,6 +41,7 @@ import portraitJpg720 from '../images/optimized/portrait-720.jpg';
 const Hero: React.FC = () => {
   const { t } = useTranslation();
   const hero = t.hero;
+  const orbitEnabled = useHeroOrbitEnabled();
 
   return (
     <div className="relative overflow-hidden pt-14 pb-24 lg:pt-24 lg:pb-32">
@@ -105,6 +134,20 @@ const Hero: React.FC = () => {
           {/* Visual Profile */}
           <div className="lg:col-span-5 relative flex justify-center lg:justify-end order-1 lg:order-2 mb-10 lg:mb-0">
             <div className="relative w-72 h-72 md:w-96 md:h-96">
+              {/* Decorative WebGL particle sphere, rendered behind everything.
+                  Extends past the portrait bounds and only mounts on desktop
+                  when reduced-motion is off (see useHeroOrbitEnabled). */}
+              {orbitEnabled && (
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 z-0 pointer-events-none"
+                >
+                  <Suspense fallback={null}>
+                    <HeroOrbitCanvas />
+                  </Suspense>
+                </div>
+              )}
+
               {/* Soft radial halo replaces the previous spinning orbital rings */}
               <div
                 aria-hidden="true"
