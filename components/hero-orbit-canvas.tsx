@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, type ThreeElements } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -78,22 +78,62 @@ const ParticleSphere: React.FC = () => {
   );
 };
 
+/** Max automatic re-creations after context loss before giving up silently. */
+const MAX_RECOVERIES = 2;
+const RECOVERY_DELAY_MS = 1500;
+
 /**
  * Decorative WebGL backdrop for the Hero portrait. Rendered behind the photo,
  * lazy-loaded as its own chunk, and only mounted by the Hero when motion is
  * allowed and the viewport is large enough to justify the cost.
+ *
+ * WebGL context loss (GPU reset, too many contexts after dev HMR reloads,
+ * laptop sleep) makes Chrome paint a white "sad face" placeholder. On
+ * `webglcontextlost` we hide the canvas at once, then remount it with a fresh
+ * context after a short delay. After MAX_RECOVERIES we leave it hidden — the
+ * portrait and halo still look fine without the particles.
  */
-const HeroOrbitCanvas: React.FC = () => (
-  <Canvas
-    aria-hidden="true"
-    className="pointer-events-none"
-    camera={{ position: [0, 0, 6], fov: 45 }}
-    dpr={[1, 1.5]}
-    gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}
-    frameloop="always"
-  >
-    <ParticleSphere />
-  </Canvas>
-);
+const HeroOrbitCanvas: React.FC = () => {
+  const [lost, setLost] = useState(false);
+  const [generation, setGeneration] = useState(0);
+  const recoveries = useRef(0);
+  const timer = useRef<number | undefined>(undefined);
+
+  const onLost = useCallback((event: Event) => {
+    event.preventDefault();
+    setLost(true);
+    if (recoveries.current >= MAX_RECOVERIES) return;
+    recoveries.current += 1;
+    window.clearTimeout(timer.current);
+    timer.current = window.setTimeout(() => {
+      setGeneration((g) => g + 1); // new <Canvas> key → new renderer + context
+      setLost(false);
+    }, RECOVERY_DELAY_MS);
+  }, []);
+
+  useEffect(() => () => window.clearTimeout(timer.current), []);
+
+  return (
+    <div
+      className={`h-full w-full transition-opacity duration-500 ${lost ? 'invisible opacity-0' : 'opacity-100'}`}
+    >
+      <Canvas
+        key={generation}
+        aria-hidden="true"
+        className="pointer-events-none"
+        camera={{ position: [0, 0, 6], fov: 45 }}
+        dpr={[1, 1.5]}
+        gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}
+        frameloop={lost ? 'never' : 'always'}
+        onCreated={({ gl }) => {
+          gl.setClearColor(0x000000, 0); // keep the canvas fully transparent
+          gl.domElement.addEventListener('webglcontextlost', onLost, false);
+        }}
+      >
+        <ParticleSphere />
+      </Canvas>
+    </div>
+  );
+};
 
 export default HeroOrbitCanvas;
