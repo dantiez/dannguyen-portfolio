@@ -71,12 +71,12 @@ const VModelRoadmap: React.FC = () => {
         >
           <defs>
             <linearGradient id="vmodel-left" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#22d3ee" />
+              <stop offset="0%" stopColor="#3b82f6" />
               <stop offset="100%" stopColor="#818cf8" />
             </linearGradient>
             <linearGradient id="vmodel-right" x1="0" y1="1" x2="1" y2="0">
               <stop offset="0%" stopColor="#818cf8" />
-              <stop offset="100%" stopColor="#22d3ee" />
+              <stop offset="100%" stopColor="#3b82f6" />
             </linearGradient>
           </defs>
           <path d="M 2 2 L 50 98" stroke="url(#vmodel-left)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" className="animate-dash-flow" opacity="0.9" />

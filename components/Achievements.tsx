@@ -41,9 +41,9 @@ const Achievements: React.FC = () => {
       <section className="py-12 px-4 sm:px-8 lg:px-40 bg-background-light dark:bg-background-dark">
         <div className="mx-auto max-w-[960px]">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <StatCard Icon={Package} value={2} suffix="+" accent="cyan" label={a.stats.projects} />
-            <StatCard Icon={Bug} value={200} suffix="+" accent="sky" label={a.stats.bugs} />
-            <StatCard Icon={ClipboardList} value={500} suffix="+" accent="indigo" label={a.stats.testCases} />
+            <StatCard Icon={Package} value={2} suffix="+" accent="blue" label={a.stats.projects} />
+            <StatCard Icon={Bug} value={200} suffix="+" accent="indigo" label={a.stats.bugs} />
+            <StatCard Icon={ClipboardList} value={500} suffix="+" accent="blue" label={a.stats.testCases} />
           </div>
         </div>
       </section>

@@ -15,12 +15,12 @@ if (!fs.existsSync(path.dirname(OUT))) {
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
 }
 
-// Composed SVG: deep-navy rounded background + chip-check logo stroked in dashboard cyan.
+// Composed SVG: deep-navy rounded background + chip-check logo stroked in electric blue.
 const svg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
   <rect width="180" height="180" rx="36" fill="#0a0f1c"/>
   <g transform="translate(28,28) scale(5.2)"
-     fill="none" stroke="#22d3ee" stroke-width="2"
+     fill="none" stroke="#3b82f6" stroke-width="2"
      stroke-linecap="round" stroke-linejoin="round">
     <rect x="6" y="6" width="12" height="12" rx="2"/>
     <path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>

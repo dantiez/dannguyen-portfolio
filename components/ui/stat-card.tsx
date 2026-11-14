@@ -3,7 +3,7 @@ import type { LucideIcon } from 'lucide-react';
 import NumberTicker from './number-ticker';
 
 /** Brand-family accents only (see COLOUR RULE in index.css). */
-type StatAccent = 'cyan' | 'sky' | 'indigo';
+type StatAccent = 'blue' | 'indigo';
 
 interface StatCardProps {
   Icon: LucideIcon;
@@ -15,15 +15,14 @@ interface StatCardProps {
 }
 
 const ACCENTS: Record<StatAccent, { icon: string; glow: string; text: string }> = {
-  cyan: { icon: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400', glow: 'group-hover:shadow-cyan-500/20 hover:border-cyan-500/50', text: 'from-cyan-600 to-sky-500 dark:from-cyan-300 dark:to-sky-400' },
-  sky: { icon: 'bg-sky-500/10 text-sky-600 dark:text-sky-400', glow: 'group-hover:shadow-sky-500/20 hover:border-sky-500/50', text: 'from-sky-600 to-indigo-500 dark:from-sky-300 dark:to-indigo-400' },
-  indigo: { icon: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400', glow: 'group-hover:shadow-indigo-500/20 hover:border-indigo-500/50', text: 'from-indigo-600 to-cyan-500 dark:from-indigo-300 dark:to-cyan-400' },
+  blue: { icon: 'bg-blue-500/10 text-blue-600 dark:text-blue-400', glow: 'group-hover:shadow-blue-500/20 hover:border-blue-500/50', text: 'from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400' },
+  indigo: { icon: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400', glow: 'group-hover:shadow-indigo-500/20 hover:border-indigo-500/50', text: 'from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-400' },
 };
 
 /**
  * Numeric KPI card with colour accent, gradient number and count-up.
  */
-const StatCard: React.FC<StatCardProps> = ({ Icon, value, suffix, label, accent = 'cyan' }) => {
+const StatCard: React.FC<StatCardProps> = ({ Icon, value, suffix, label, accent = 'blue' }) => {
   const a = ACCENTS[accent];
   return (
     <div

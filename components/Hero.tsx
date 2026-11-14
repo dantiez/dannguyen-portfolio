@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
       />
       <div
         aria-hidden="true"
-        className="aurora-blob absolute top-1/3 left-1/2 w-72 h-72 bg-sky-500/10 rounded-full blur-3xl pointer-events-none [animation-delay:-12s]"
+        className="aurora-blob absolute top-1/3 left-1/2 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none [animation-delay:-12s]"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
