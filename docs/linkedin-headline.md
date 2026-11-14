@@ -66,11 +66,11 @@ Nearly 2 years of hands-on QA experience at HOPEE Co., Ltd., testing microservic
 🌏 Multilingual background:
 • Vietnamese — native
 • English — professional working
-• Japanese — conversational (4 years studying in Japan)
+• Japanese — N2-level reading comprehension (4 years in Japan)
 
 I'm a QA engineer who treats AI as a force multiplier, not a replacement — the rigor is mine, the speed is augmented. Open to remote and hybrid roles in QA Automation, API Testing, or AI-augmented QA workflows.
 
-📬 Let's connect: dannt4022@gmail.com
+📬 Let's connect: tiendannguyen224@gmail.com
 🌐 Portfolio: https://dantiez-portfolio.vercel.app
 ```
 

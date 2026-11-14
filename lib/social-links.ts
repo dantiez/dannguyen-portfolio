@@ -3,7 +3,7 @@
  * Update here when LinkedIn vanity URL changes or GitHub username changes.
  */
 export const SOCIAL = {
-  email: 'dannt4022@gmail.com',
+  email: 'tiendannguyen224@gmail.com',
   phone: '+84907281361',
   linkedin: 'https://www.linkedin.com/in/dan-nguyen-tien-a24244302',
   github: 'https://github.com/dantiez',

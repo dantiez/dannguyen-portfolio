@@ -11,7 +11,7 @@ const en = {
   meta: {
     pageTitle: 'Dan Nguyen Tien - AI-Augmented QA Engineer',
     description:
-      'AI-Augmented QA Engineer with nearly 2 years testing microservice systems. Postman, Selenium, Playwright, Claude, and Copilot for faster, sharper test cycles.',
+      'AI-Augmented QA Engineer with 2+ years testing microservice systems. Postman, Selenium, Playwright, Claude, and Copilot for faster, sharper test cycles.',
   },
 
   a11y: {
@@ -42,7 +42,7 @@ const en = {
     welcomeChip: 'Welcome to my portfolio',
     role: '<AI-Augmented QA Engineer/>',
     specialty: 'Productivity-First Testing · LLM-Powered Workflow',
-    bio: 'AI-Augmented QA Engineer with nearly 2 years testing microservice-based systems. Combine traditional QA rigor — requirement analysis, test case design, API verification with Postman/Mockoon, database checks (MySQL/PostgreSQL), and JMeter performance baselines — with a modern AI-augmented workflow using Claude and Copilot to accelerate test authoring, log triage, and bug-report quality. Currently expanding into Playwright via AI-paired learning sessions with Claude Code.',
+    bio: 'AI-Augmented QA Engineer with 2+ years testing microservice-based systems. Combine traditional QA rigor — requirement analysis, test case design, API verification with Postman/Mockoon, database checks (MySQL/PostgreSQL), and JMeter performance baselines — with a modern AI-augmented workflow using Claude and Copilot to accelerate test authoring, log triage, and bug-report quality. Currently expanding into Playwright via AI-paired learning sessions with Claude Code, and following a self-study roadmap into automotive embedded testing (C/C++, Simulink, CANoe, MiL/SiL/HiL).',
     ctaPrimary: 'View Career',
     ctaSecondary: 'Get in Touch',
     statusBadge: 'Available for work',
@@ -58,8 +58,8 @@ const en = {
     title: "Currently building & learning",
     items: [
       'Playwright test suite paired with Claude Code',
-      'ISTQB Foundation Level — target Q3 2026',
-      'LLM evaluation patterns (Promptfoo · Ragas)',
+      'ISTQB Foundation Level — in preparation',
+      'Automotive embedded testing roadmap — C/C++, Simulink/TPT, CANoe/CANape, CAN, DOORS/codeBeamer (self-study)',
     ],
   },
 
@@ -141,11 +141,11 @@ const en = {
       fptAptech: {
         title: 'Computer Education',
         company: 'FPT Aptech',
-        date: '07/2023 - 05/2024',
+        date: '07/2023 - 06/2025',
         subtext: 'Aptech Computer Education, India – in cooperation with FPT Corporation',
         items: [
           'Completed intensive coursework in software development and testing fundamentals.',
-          'Developed foundational knowledge in programming logic, database management, and web technologies.',
+          'Developed foundational knowledge in programming (C/C++, Python — basic), database management, and web technologies.',
           'Participated in practical projects to apply theoretical concepts.',
         ],
         tags: ['Software Development', 'Databases', 'Testing Fundamentals'],
@@ -158,6 +158,7 @@ const en = {
           'Pursued academic studies while adapting to a new cultural environment.',
           'Developed strong cross-cultural communication skills and resilience.',
           'Gained proficiency in the Japanese language and work ethic.',
+          'Studied automotive mechanics at Yomiuri College of Car Mechanic, Tokyo (2021–2023).',
         ],
         tags: ['Japanese Language', 'Adaptability'],
       },
@@ -197,17 +198,17 @@ const en = {
     cards: {
       testing: {
         title: 'Testing Knowledge',
-        desc: 'Functional, Regression, Smoke, Sanity, UAT, Black Box Testing, Exploratory Testing',
+        desc: 'Functional, Regression, Smoke, Sanity, UAT, Black Box, Exploratory — Equivalence Class Partitioning, Boundary Value Analysis, Decision Table, Requirements-based Test Design',
         tags: ['Functional', 'Regression'],
       },
       requirements: {
         title: 'Requirement Analysis',
-        desc: 'User Stories, Acceptance Criteria, Risk Analysis, Traceability Matrix',
+        desc: 'Requirement Review, Test Spec derivation from approved requirements, Acceptance Criteria, Risk Analysis, Requirement-to-Test Traceability',
         tags: ['Jira', 'Confluence'],
       },
       process: {
         title: 'Process',
-        desc: 'Agile/Scrum, SDLC, STLC, Bug Life Cycle, Sprint Planning — AI-augmented authoring & triage',
+        desc: 'V-model, Agile/Scrum, SDLC, STLC, Bug Life Cycle, Test Reporting — AI-augmented authoring & triage',
         tags: ['Agile', 'AI-First'],
       },
       api: {
@@ -286,7 +287,7 @@ const en = {
       successCtaHeading: 'Connect with me:',
       errorTitle: 'Send failed.',
       errorBody:
-        'Something went wrong. Please try again or email me directly at dannt4022@gmail.com.',
+        'Something went wrong. Please try again or email me directly at tiendannguyen224@gmail.com.',
       offlineNote: 'Form delivery not configured yet — please email me directly.',
       validationNote: 'Protected by standard input validation.',
       required: '*',

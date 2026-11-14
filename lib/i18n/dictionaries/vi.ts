@@ -9,7 +9,7 @@ const vi: Dictionary = {
   meta: {
     pageTitle: 'Dan Nguyen Tien - AI-Augmented QA Engineer',
     description:
-      'Kỹ sư QA AI-Augmented với gần 2 năm kiểm thử hệ thống microservice. Postman, Selenium, Playwright, Claude và Copilot cho chu trình test nhanh và chính xác hơn.',
+      'Kỹ sư QA AI-Augmented với hơn 2 năm kiểm thử hệ thống microservice. Postman, Selenium, Playwright, Claude và Copilot cho chu trình test nhanh và chính xác hơn.',
   },
 
   a11y: {
@@ -40,7 +40,7 @@ const vi: Dictionary = {
     welcomeChip: 'Chào mừng đến portfolio của tôi',
     role: '<AI-Augmented QA Engineer/>',
     specialty: 'Kiểm thử Hiệu suất cao · Quy trình tích hợp LLM',
-    bio: 'Kỹ sư QA AI-Augmented với gần 2 năm kinh nghiệm kiểm thử hệ thống microservice. Kết hợp nền tảng QA truyền thống — phân tích yêu cầu, thiết kế test case, kiểm thử API với Postman/Mockoon, kiểm tra database (MySQL/PostgreSQL), performance baseline với JMeter — cùng quy trình AI-augmented hiện đại sử dụng Claude và Copilot để tăng tốc viết test case, phân tích log và nâng chất lượng báo cáo bug. Hiện đang mở rộng kỹ năng sang Playwright thông qua các phiên học cặp đôi AI với Claude Code.',
+    bio: 'Kỹ sư QA AI-Augmented với hơn 2 năm kinh nghiệm kiểm thử hệ thống microservice. Kết hợp nền tảng QA truyền thống — phân tích yêu cầu, thiết kế test case, kiểm thử API với Postman/Mockoon, kiểm tra database (MySQL/PostgreSQL), performance baseline với JMeter — cùng quy trình AI-augmented hiện đại sử dụng Claude và Copilot để tăng tốc viết test case, phân tích log và nâng chất lượng báo cáo bug. Hiện đang mở rộng kỹ năng sang Playwright thông qua các phiên học cặp đôi AI với Claude Code, đồng thời theo lộ trình tự học kiểm thử embedded automotive (C/C++, Simulink, CANoe, MiL/SiL/HiL).',
     ctaPrimary: 'Xem sự nghiệp',
     ctaSecondary: 'Liên hệ ngay',
     statusBadge: 'Sẵn sàng nhận việc',
@@ -56,8 +56,8 @@ const vi: Dictionary = {
     title: 'Đang xây dựng & học hỏi',
     items: [
       'Bộ test Playwright kết hợp Claude Code',
-      'ISTQB Foundation Level — mục tiêu Q3 2026',
-      'Các pattern đánh giá LLM (Promptfoo · Ragas)',
+      'ISTQB Foundation Level — đang ôn luyện',
+      'Lộ trình kiểm thử embedded automotive — C/C++, Simulink/TPT, CANoe/CANape, CAN, DOORS/codeBeamer (tự học)',
     ],
   },
 
@@ -139,11 +139,11 @@ const vi: Dictionary = {
       fptAptech: {
         title: 'Đào tạo Công nghệ',
         company: 'FPT Aptech',
-        date: '07/2023 - 05/2024',
+        date: '07/2023 - 06/2025',
         subtext: 'Aptech Computer Education, Ấn Độ – hợp tác với Tập đoàn FPT',
         items: [
           'Hoàn thành chương trình chuyên sâu về phát triển phần mềm và nền tảng kiểm thử.',
-          'Xây dựng kiến thức nền tảng về logic lập trình, quản lý database và công nghệ web.',
+          'Xây dựng kiến thức nền tảng về lập trình (C/C++, Python — cơ bản), quản lý database và công nghệ web.',
           'Tham gia các dự án thực tế để áp dụng kiến thức lý thuyết.',
         ],
         tags: ['Phát triển Phần mềm', 'Databases', 'Nền tảng Kiểm thử'],
@@ -156,6 +156,7 @@ const vi: Dictionary = {
           'Theo đuổi học vấn đồng thời thích nghi với môi trường văn hóa mới.',
           'Phát triển kỹ năng giao tiếp đa văn hóa và khả năng kiên cường.',
           'Đạt trình độ tiếng Nhật và lĩnh hội tinh thần làm việc Nhật Bản.',
+          'Học cơ khí ô tô tại Yomiuri College of Car Mechanic, Tokyo (2021–2023).',
         ],
         tags: ['Tiếng Nhật', 'Khả năng Thích nghi'],
       },
@@ -195,17 +196,17 @@ const vi: Dictionary = {
     cards: {
       testing: {
         title: 'Kiến thức Kiểm thử',
-        desc: 'Functional, Regression, Smoke, Sanity, UAT, Black Box Testing, Exploratory Testing',
+        desc: 'Functional, Regression, Smoke, Sanity, UAT, Black Box, Exploratory — Phân vùng tương đương, Phân tích giá trị biên, Bảng quyết định, Thiết kế test dựa trên requirement',
         tags: ['Functional', 'Regression'],
       },
       requirements: {
         title: 'Phân tích Yêu cầu',
-        desc: 'User Stories, Acceptance Criteria, Phân tích Rủi ro, Traceability Matrix',
+        desc: 'Review Requirement, Derive Test Spec từ requirement đã duyệt, Acceptance Criteria, Phân tích Rủi ro, Traceability Requirement–Test',
         tags: ['Jira', 'Confluence'],
       },
       process: {
         title: 'Quy trình',
-        desc: 'Agile/Scrum, SDLC, STLC, Bug Life Cycle, Sprint Planning — viết test và phân tích log có hỗ trợ AI',
+        desc: 'V-model, Agile/Scrum, SDLC, STLC, Bug Life Cycle, Test Report — viết test và phân tích log có hỗ trợ AI',
         tags: ['Agile', 'AI-First'],
       },
       api: {
@@ -284,7 +285,7 @@ const vi: Dictionary = {
       successCtaHeading: 'Kết nối với tôi:',
       errorTitle: 'Gửi thất bại.',
       errorBody:
-        'Có lỗi xảy ra. Vui lòng thử lại hoặc gửi email trực tiếp tới dannt4022@gmail.com.',
+        'Có lỗi xảy ra. Vui lòng thử lại hoặc gửi email trực tiếp tới tiendannguyen224@gmail.com.',
       offlineNote: 'Chức năng gửi form chưa được cấu hình — vui lòng email trực tiếp.',
       validationNote: 'Được bảo vệ bởi xác thực đầu vào tiêu chuẩn.',
       required: '*',

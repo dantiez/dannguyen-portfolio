@@ -13,22 +13,25 @@
 
 **AI-Augmented QA Engineer** · Ho Chi Minh City, Vietnam (GMT+7) · Open to Remote / Hybrid
 
-dannt4022@gmail.com  ·  +84 907 281 361  
+tiendannguyen224@gmail.com  ·  +84 907 281 361  
 LinkedIn: linkedin.com/in/dan-nguyen-tien-a24244302  ·  GitHub: github.com/dantiez  
-Portfolio: dantiez-portfolio.vercel.app
+Portfolio: dannguyen-portfolio.vercel.app
 
 ---
 
 ## Professional Summary
 
-AI-Augmented QA Engineer with nearly 2 years of experience testing microservice-based systems. Combine traditional QA rigor — requirement analysis, test case design, API verification with Postman/Mockoon, database checks (MySQL/PostgreSQL), and JMeter performance baselines — with a modern AI-augmented workflow leveraging Claude and GitHub Copilot to accelerate test authoring, log triage, and bug-report quality. Actively expanding automation skills into Playwright via AI-paired learning sessions with Claude Code. Multilingual: Vietnamese (native), Japanese (conversational, 4 years residence), English (professional).
+QA Engineer with 2+ years of experience testing microservice-based systems. Strong in requirements-based testing — requirement review, deriving test specifications from approved requirements, test design with equivalence class partitioning and boundary value analysis, test execution, results analysis and test reporting. Combine traditional QA rigor — API verification with Postman/Mockoon, database checks (MySQL/PostgreSQL), and JMeter performance baselines — with a modern AI-augmented workflow leveraging Claude and GitHub Copilot to accelerate test authoring, log triage, and bug-report quality. Actively expanding automation skills into Playwright, and following a structured self-study roadmap to transition into automotive embedded testing (C/C++, MATLAB Simulink/TPT, CANoe/CANape, DOORS/codeBeamer, EXAM, microcontroller & CAN fundamentals). Basic C/C++ and Python from FPT Aptech; certified in Automation Testing (VIT Academy). Multilingual: Vietnamese (native), Japanese (N2-level reading comprehension, 4 years in Japan), English (professional).
 
 ---
 
 ## Core Skills
 
 **Testing Methodology**
-Functional · Regression · Smoke · Sanity · UAT · Black Box · Exploratory · Boundary Value Analysis · Risk-Based Testing
+Requirements-based Testing · Equivalence Class Partitioning · Boundary Value Analysis · Decision Table · Functional · Regression · Smoke · Sanity · UAT · Black Box · Exploratory · Risk-Based Testing
+
+**Requirements & Test Documentation**
+Requirement review · Test specification derivation · Requirement-to-test traceability · Test execution & results analysis · Test reporting
 
 **API & Backend Testing**
 REST API · Postman · Mockoon · JSON/XML validation · HTTP status code verification · Contract testing
@@ -39,6 +42,9 @@ MySQL · PostgreSQL · SQL queries · Inner/Outer Joins · Data integrity · Dat
 **Automation**
 Selenium WebDriver · Playwright (TypeScript, in progress) · Page Object Model · Async test patterns
 
+**Programming**
+C/C++ (basic) · Python (basic) · SQL · TypeScript (test scripts)
+
 **Performance Testing**
 JMeter (basic baselines)
 
@@ -46,7 +52,10 @@ JMeter (basic baselines)
 Claude (Anthropic) · GitHub Copilot · Claude Code · Prompt engineering for QA tasks · AI-assisted log triage · Synthetic test data generation · Multi-language test asset translation
 
 **Process & Tools**
-Agile · Scrum · SDLC · STLC · Bug Life Cycle · Sprint Planning · Jira · Confluence · TestRail · Git · Jenkins · Chrome DevTools
+V-model · Agile · Scrum · SDLC · STLC · Bug Life Cycle · Sprint Planning · Jira · Confluence · TestRail · Git · Jenkins · Chrome DevTools
+
+**Embedded / Automotive — Self-study Roadmap (in progress)**
+V-model · MiL / SiL / HiL testing · C/C++ for embedded · MATLAB Simulink / TPT · CANoe / CANape · CAN protocol · DOORS / codeBeamer · EXAM · Microcontroller, sensor & actuator fundamentals · Automotive domain
 
 **Soft Skills**
 Cross-functional collaboration · Technical documentation · Defect reporting · Cross-cultural communication
@@ -83,12 +92,12 @@ Cross-functional collaboration · Technical documentation · Defect reporting ·
 ## Education
 
 ### FPT Aptech — Computer Education Diploma
-*07/2023 – 05/2024 · Ho Chi Minh City, Vietnam*
+*07/2023 – 06/2025 · Ho Chi Minh City, Vietnam*
 
 Aptech Computer Education (India) in cooperation with FPT Corporation.
 
 - Completed intensive coursework in software development and testing fundamentals.
-- Developed foundational knowledge in programming logic, database management, and web technologies.
+- Developed foundational knowledge in programming (C/C++, Python — basic level), database management, and web technologies.
 - Applied theoretical concepts through practical projects.
 
 ### International Student — Japan
@@ -97,6 +106,8 @@ Aptech Computer Education (India) in cooperation with FPT Corporation.
 - Pursued academic studies while adapting to a new cultural environment.
 - Developed strong cross-cultural communication skills and resilience.
 - Gained proficiency in the Japanese language and Japanese work ethic.
+- Yomiuri College of Car Mechanic, Tokyo (04/2021 – 03/2023) — automotive mechanics program.
+- Ichikawa Japanese Language Institute, Chiba (10/2019 – 03/2021).
 
 ---
 
@@ -104,7 +115,7 @@ Aptech Computer Education (India) in cooperation with FPT Corporation.
 
 - **Vietnamese** — Native
 - **English** — Professional working proficiency
-- **Japanese** — Conversational (4 years residence in Japan)
+- **Japanese** — N2-level reading comprehension (4 years living and studying in Japan)
 
 ---
 
@@ -124,9 +135,10 @@ Concrete examples of how I integrate AI tooling into daily QA work — defensibl
 
 ---
 
-## Certifications (Planned)
+## Certifications
 
-- ISTQB Foundation Level — Target Q3 2026
+- Automation Testing — Certificate of Completion, VIT Academy
+- ISTQB Foundation Level — in preparation
 
 ---
 
@@ -138,4 +150,4 @@ Available upon request.
 
 ## ATS Keywords (footer — keep when exporting)
 
-Quality Assurance, QA Engineer, Software Tester, Test Automation, Manual Testing, Automated Testing, Selenium, Playwright, Postman, Mockoon, REST API, JMeter, MySQL, PostgreSQL, SQL, Jira, Confluence, TestRail, Jenkins, Git, Agile, Scrum, SDLC, STLC, Regression Testing, Smoke Testing, UAT, Black Box Testing, Microservices, Page Object Model, AI-Augmented Testing, GitHub Copilot, Claude, LLM, Prompt Engineering, Continuous Integration, Bug Tracking, Defect Management
+Quality Assurance, QA Engineer, Software Tester, Test Automation, Manual Testing, Automated Testing, Selenium, Playwright, Postman, Mockoon, REST API, JMeter, MySQL, PostgreSQL, SQL, Jira, Confluence, TestRail, Jenkins, Git, Agile, Scrum, SDLC, STLC, Regression Testing, Smoke Testing, UAT, Black Box Testing, Microservices, Page Object Model, AI-Augmented Testing, GitHub Copilot, Claude, LLM, Prompt Engineering, Continuous Integration, Bug Tracking, Defect Management, V-model, Requirements-based Testing, Equivalence Partitioning, Boundary Value Analysis, Test Specification, Traceability, Test Report

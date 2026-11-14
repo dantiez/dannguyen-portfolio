@@ -12,7 +12,7 @@ const ja: Dictionary = {
   meta: {
     pageTitle: 'Dan Nguyen Tien - AI活用QAエンジニア',
     description:
-      'マイクロサービスシステムを約2年間テストしてきたAI活用QAエンジニア。Postman、Selenium、Playwright、Claude、Copilot を駆使し、より速く正確なテストサイクルを実現。',
+      'マイクロサービスシステムを2年以上間テストしてきたAI活用QAエンジニア。Postman、Selenium、Playwright、Claude、Copilot を駆使し、より速く正確なテストサイクルを実現。',
   },
 
   a11y: {
@@ -43,7 +43,7 @@ const ja: Dictionary = {
     welcomeChip: 'ポートフォリオへようこそ',
     role: '<AI-Augmented QA Engineer/>',
     specialty: '生産性重視のテスト · LLM活用ワークフロー',
-    bio: 'マイクロサービスベースのシステムにおける手動テストで約2年の経験を持つ AI 活用型 QA エンジニアです。要件分析、テストケース設計、Postman・Mockoon による API テスト、MySQL・PostgreSQL でのデータベース検証、JMeter による基本的なパフォーマンステストといった従来の QA 手法に加え、Claude や Copilot を活用した最新の AI ワークフローで、テスト作成、ログトリアージ、バグレポート品質の向上を実現しております。現在は Claude Code との AI ペアプログラミングセッションを通じて Playwright スキルを拡張中です。',
+    bio: 'マイクロサービスベースのシステムにおける手動テストで2年以上の経験を持つ AI 活用型 QA エンジニアです。要件分析、テストケース設計、Postman・Mockoon による API テスト、MySQL・PostgreSQL でのデータベース検証、JMeter による基本的なパフォーマンステストといった従来の QA 手法に加え、Claude や Copilot を活用した最新の AI ワークフローで、テスト作成、ログトリアージ、バグレポート品質の向上を実現しております。現在は Claude Code との AI ペアプログラミングセッションを通じて Playwright スキルを拡張中であり、車載組込みテスト (C/C++、Simulink、CANoe、MiL/SiL/HiL) の自主学習ロードマップにも取り組んでいます。',
     ctaPrimary: '経歴を見る',
     ctaSecondary: 'お問い合わせ',
     statusBadge: '新しい機会を探しています',
@@ -59,8 +59,8 @@ const ja: Dictionary = {
     title: '取り組み中 & 学習中',
     items: [
       'Claude Code と組んだ Playwright テストスイート',
-      'ISTQB Foundation Level — 2026年Q3を目標',
-      'LLM評価パターン (Promptfoo · Ragas)',
+      'ISTQB Foundation Level — 受験準備中',
+      '車載組込みテスト学習ロードマップ — C/C++、Simulink/TPT、CANoe/CANape、CAN、DOORS/codeBeamer (自主学習)',
     ],
   },
 
@@ -142,11 +142,11 @@ const ja: Dictionary = {
       fptAptech: {
         title: 'コンピュータ教育',
         company: 'FPT Aptech',
-        date: '2023年7月 〜 2024年5月',
+        date: '2023年7月 〜 2025年6月',
         subtext: 'Aptech Computer Education, India – FPT Corporation との連携プログラム',
         items: [
           'ソフトウェア開発とテストの基礎について集中的なカリキュラムを修了。',
-          'プログラミングロジック、データベース管理、Web技術の基礎を習得。',
+          'プログラミング (C/C++、Python — 基礎)、データベース管理、Web技術の基礎を習得。',
           '理論を実践に応用する実プロジェクトに参加。',
         ],
         tags: ['ソフトウェア開発', 'データベース', 'テスト基礎'],
@@ -159,6 +159,7 @@ const ja: Dictionary = {
           '異文化環境に適応しながら学業を遂行。',
           '異文化コミュニケーション能力と適応力を養成。',
           '日本語能力と日本式の労働倫理を習得。',
+          '読売自動車大学校 (東京) で自動車整備を学ぶ (2021–2023)。',
         ],
         tags: ['日本語', '適応力'],
       },
@@ -198,17 +199,17 @@ const ja: Dictionary = {
     cards: {
       testing: {
         title: 'テスト知識',
-        desc: '機能テスト、リグレッション、スモーク、サニティ、UAT、ブラックボックステスト、探索的テスト',
+        desc: '機能テスト、リグレッション、スモーク、サニティ、UAT、ブラックボックス、探索的テスト — 同値分割、境界値分析、デシジョンテーブル、要件ベースのテスト設計',
         tags: ['機能テスト', 'リグレッション'],
       },
       requirements: {
         title: '要件分析',
-        desc: 'ユーザーストーリー、受け入れ基準、リスク分析、トレーサビリティマトリクス',
+        desc: '要件レビュー、承認済み要件からのテスト仕様導出、受け入れ基準、リスク分析、要件–テスト間トレーサビリティ',
         tags: ['Jira', 'Confluence'],
       },
       process: {
         title: 'プロセス',
-        desc: 'アジャイル/スクラム、SDLC、STLC、バグライフサイクル、スプリント計画 — AI 活用によるテスト作成とトリアージ',
+        desc: 'V字モデル、アジャイル/スクラム、SDLC、STLC、バグライフサイクル、テストレポート — AI 活用によるテスト作成とトリアージ',
         tags: ['アジャイル', 'AI-First'],
       },
       api: {
@@ -287,7 +288,7 @@ const ja: Dictionary = {
       successCtaHeading: 'つながりましょう:',
       errorTitle: '送信に失敗しました。',
       errorBody:
-        'エラーが発生しました。再度お試しいただくか、dannt4022@gmail.com まで直接メールをお送りください。',
+        'エラーが発生しました。再度お試しいただくか、tiendannguyen224@gmail.com まで直接メールをお送りください。',
       offlineNote: 'フォーム送信機能は未設定です — 直接メールでご連絡ください。',
       validationNote: '標準的な入力検証で保護されています。',
       required: '*',
