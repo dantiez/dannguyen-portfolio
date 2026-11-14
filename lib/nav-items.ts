@@ -7,6 +7,7 @@ import type { Dictionary } from './i18n/dictionaries/en';
 export const NAV_ORDER = [
   'about',
   'achievements',
+  'traceability',
   'careertimeline',
   'aiworkflow',
   'repos',
@@ -26,6 +27,7 @@ export function getNavItems(
   return [
     { id: 'about', label: t.nav.about },
     { id: 'achievements', label: t.nav.achievements },
+    { id: 'traceability', label: t.nav.traceability },
     { id: 'careertimeline', label: t.nav.career },
     { id: 'aiworkflow', label: t.nav.aiWorkflow },
     { id: 'repos', label: t.nav.repos },

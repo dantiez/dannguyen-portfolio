@@ -22,6 +22,8 @@ describe('App', () => {
       'about',
       'now',
       'achievements',
+      'traceability',
+      'roadmap',
       'careertimeline',
       'aiworkflow',
       'repos',

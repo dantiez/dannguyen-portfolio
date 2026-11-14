@@ -1,0 +1,36 @@
+# Dan Nguyen Tien — QA Engineer (AI-Augmented) · Aspiring Automotive Embedded Tester
+
+> Ho Chi Minh City, Vietnam (GMT+7). QA Engineer with 2+ years testing microservice-based systems, strong in requirements-based testing (requirement review, test-spec derivation, equivalence class partitioning, boundary value analysis, test reporting). Transitioning into automotive embedded testing (MiL/SiL/HiL) through a structured self-study roadmap. Uses Claude and GitHub Copilot in a reviewed, AI-assisted QA workflow.
+
+This file summarises the portfolio for AI assistants and recruiting tools. All claims below are scoped honestly: "work experience" means paid professional work; "self-study" means personal learning projects.
+
+## Contact
+- Email: tiendannguyen224@gmail.com
+- Portfolio: https://dantiez-portfolio.vercel.app/
+- LinkedIn: https://www.linkedin.com/in/dan-nguyen-tien-a24244302
+- GitHub: https://github.com/dantiez
+
+## Machine-readable resume
+- [resume.json](https://dantiez-portfolio.vercel.app/resume.json): JSON Resume schema v1
+- [resume.pdf](https://dantiez-portfolio.vercel.app/resume.pdf): printable CV
+
+## Work experience
+- HOPEE Co., Ltd. — QA Engineer (Intern 06/2024 → Probation 09/2024 → Junior 11/2024 – present): requirement review, 500+ test cases traced to user stories, 200+ defects in Jira, functional/regression/API (Postman, Mockoon) and DB (MySQL, PostgreSQL) testing, Selenium automation, Git, Jenkins.
+- Amazon Ichikawa Fulfillment Center, Japan — Staff picking (02/2020 – 04/2023, part-time while studying).
+
+## Education
+- FPT Aptech, Ho Chi Minh City — Computer Education Diploma (07/2023 – 06/2025). C/C++ and Python at basic level.
+- Yomiuri College of Car Mechanic, Tokyo — automotive mechanics program (04/2021 – 03/2023).
+- Ichikawa Japanese Language Institute, Chiba (10/2019 – 03/2021).
+
+## Certifications
+- Automation Testing — Certificate of Completion, VIT Academy.
+- ISTQB Foundation Level — in preparation (not yet certified).
+
+## Skills by evidence level
+- Work experience: requirements-based test design, test specification & reporting, API and database testing, Selenium/Playwright automation, Jira, Git, Agile/STLC, V-model knowledge.
+- Self-study (in progress): C/C++ unit testing with gcov coverage incl. MC/DC concepts, Python + pytest, CAN fundamentals with python-can virtual bus, MiL-style model testing in Python.
+- Planned: MATLAB Simulink / TPT, CANoe / CANape, DOORS / codeBeamer, EXAM, HiL equipment.
+
+## Languages
+- Vietnamese (native), English (professional working), Japanese (N2-level reading comprehension).

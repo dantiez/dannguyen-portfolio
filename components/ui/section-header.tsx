@@ -2,6 +2,8 @@ import React from 'react';
 import type { LucideIcon } from 'lucide-react';
 
 interface SectionHeaderProps {
+  /** Optional two-digit section index rendered as a mono `// 02` marker. */
+  index?: string;
   eyebrow?: string;
   EyebrowIcon?: LucideIcon;
   /** Accent used for the eyebrow chip + underline. */
@@ -16,6 +18,7 @@ interface SectionHeaderProps {
  * Pattern: optional eyebrow chip (icon + label) → title → underline accent → subtitle.
  */
 const SectionHeader: React.FC<SectionHeaderProps> = ({
+  index,
   eyebrow,
   EyebrowIcon,
   accent = 'primary',
@@ -37,6 +40,11 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 
   return (
     <div className={`flex flex-col gap-3 mb-12 ${alignClasses}`}>
+      {index && (
+        <span className="font-mono text-xs text-slate-400 dark:text-slate-500" aria-hidden="true">
+          {`// ${index}`}
+        </span>
+      )}
       {(eyebrow || EyebrowIcon) && (
         <span
           className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wider ${accentChip}`}

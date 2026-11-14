@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import CurrentlyBuilding from './components/CurrentlyBuilding';
 import Achievements from './components/Achievements';
+import TraceabilityMatrix from './components/TraceabilityMatrix';
+import VModelRoadmap from './components/VModelRoadmap';
 import CareerTimeline from './components/CareerTimeline';
 import AiWorkflow from './components/AiWorkflow';
 import RepoShowcase from './components/RepoShowcase';
@@ -38,6 +40,14 @@ const App: React.FC = () => {
 
         <section id="achievements">
           <Achievements />
+        </section>
+
+        <section id="traceability">
+          <TraceabilityMatrix />
+        </section>
+
+        <section id="roadmap">
+          <VModelRoadmap />
         </section>
 
         <section id="careertimeline">

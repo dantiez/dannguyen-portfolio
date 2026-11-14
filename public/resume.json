@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Dan Nguyen Tien",
+    "label": "QA Engineer (AI-Augmented) · Aspiring Automotive Embedded Tester",
+    "email": "tiendannguyen224@gmail.com",
+    "phone": "+84 907 281 361",
+    "url": "https://dantiez-portfolio.vercel.app/",
+    "summary": "QA Engineer with 2+ years testing microservice-based systems. Strong in requirements-based testing: requirement review, deriving test specifications from approved requirements, equivalence class partitioning, boundary value analysis, execution, results analysis and test reporting. Transitioning into automotive embedded testing (MiL/SiL/HiL) via a structured self-study roadmap.",
+    "location": { "city": "Ho Chi Minh City", "countryCode": "VN" },
+    "profiles": [
+      { "network": "LinkedIn", "url": "https://www.linkedin.com/in/dan-nguyen-tien-a24244302" },
+      { "network": "GitHub", "username": "dantiez", "url": "https://github.com/dantiez" }
+    ]
+  },
+  "work": [
+    {
+      "name": "HOPEE Co., Ltd.",
+      "position": "QA Engineer",
+      "location": "Ho Chi Minh City, Vietnam",
+      "startDate": "2024-06",
+      "summary": "Progressed from QA Intern (06/2024) to Probationary (09/2024) to Junior QA Engineer (11/2024).",
+      "highlights": [
+        "Reviewed requirements and user stories; derived test cases from approved requirements with requirement-to-test traceability (500+ test cases).",
+        "Designed tests with equivalence class partitioning, boundary value analysis and risk-based prioritisation.",
+        "Executed functional, regression, smoke and API tests (Postman, Mockoon) plus database verification (MySQL, PostgreSQL) across 2+ delivered microservice projects.",
+        "Analysed test results, reported and tracked 200+ defects in Jira.",
+        "Developed test automation with Selenium WebDriver (Page Object Model); expanding into Playwright. Used Git and Jenkins CI.",
+        "Introduced a reviewed AI-assisted QA workflow (Claude, GitHub Copilot) for test scaffolding and CI log triage."
+      ]
+    },
+    {
+      "name": "Amazon Ichikawa Fulfillment Center",
+      "position": "Staff picking (part-time)",
+      "location": "Chiba, Japan",
+      "startDate": "2020-02",
+      "endDate": "2023-04",
+      "summary": "Picked and packaged customer orders while studying in Japan."
+    }
+  ],
+  "education": [
+    {
+      "institution": "FPT Aptech",
+      "area": "Computer Education Diploma",
+      "startDate": "2023-07",
+      "endDate": "2025-06",
+      "courses": ["Programming fundamentals (C/C++, Python — basic)", "Databases", "Web technologies", "Software testing"]
+    },
+    {
+      "institution": "Yomiuri College of Car Mechanic",
+      "area": "Automotive mechanics",
+      "startDate": "2021-04",
+      "endDate": "2023-03"
+    },
+    {
+      "institution": "Ichikawa Japanese Language Institute",
+      "area": "Japanese language",
+      "startDate": "2019-10",
+      "endDate": "2021-03"
+    }
+  ],
+  "certificates": [
+    { "name": "Automation Testing — Certificate of Completion", "issuer": "VIT Academy" }
+  ],
+  "skills": [
+    { "name": "Requirements-based testing", "level": "Experienced", "keywords": ["Requirement review", "Test specification", "Traceability", "Equivalence class partitioning", "Boundary value analysis", "Test reporting"] },
+    { "name": "API & database testing", "level": "Experienced", "keywords": ["Postman", "Mockoon", "REST", "MySQL", "PostgreSQL", "SQL"] },
+    { "name": "Test automation", "level": "Intermediate", "keywords": ["Selenium WebDriver", "Playwright", "Page Object Model", "TypeScript"] },
+    { "name": "Process & tools", "level": "Intermediate", "keywords": ["V-model", "SDLC", "STLC", "Agile", "Git", "Jira", "Jenkins", "TestRail"] },
+    { "name": "Programming", "level": "Beginner", "keywords": ["C/C++", "Python"] },
+    { "name": "Automotive embedded testing (self-study, in progress)", "level": "Beginner", "keywords": ["MiL/SiL/HiL concepts", "Code coverage (DC, MC/DC)", "CAN protocol", "python-can", "gcov"] },
+    { "name": "AI-augmented QA", "level": "Intermediate", "keywords": ["Claude", "GitHub Copilot", "Prompt engineering", "AI-assisted log triage"] }
+  ],
+  "languages": [
+    { "language": "Vietnamese", "fluency": "Native" },
+    { "language": "English", "fluency": "Professional working proficiency" },
+    { "language": "Japanese", "fluency": "N2-level reading comprehension" }
+  ],
+  "meta": { "lastModified": "2026-11-14" }
+}
