@@ -9,6 +9,7 @@ Personal portfolio of an **AI-Augmented QA Engineer**. Dark-themed, bilingual (E
 - **Sections** — Hero, Currently Building, Achievements, JD Traceability Matrix, V-model Roadmap, Career Timeline, AI Workflow, Repo Showcase, Skills, Contact
 - **Bilingual** — English / Vietnamese with a locale switcher
 - **Light & dark themes** — dark by default, no-flash theme script, persisted to `localStorage`
+- **Subtle 3D Hero** — lazy-loaded particle sphere (Three.js / React Three Fiber), disabled on mobile and when `prefers-reduced-motion` is set
 - **JD Traceability Matrix & V-model Roadmap** — test-report styled sections mapping role requirements to evidence (MET / IN PROGRESS / PLANNED)
 - **AI/ATS-readable** — `public/llms.txt` and `public/resume.json` (JSON Resume schema)
 - **Accessible** — skip-to-content link, focus-visible styles, reduced-motion support
@@ -22,6 +23,7 @@ Personal portfolio of an **AI-Augmented QA Engineer**. Dark-themed, bilingual (E
 | Framework | React 19, TypeScript |
 | Build | Vite 6 |
 | Styling | Tailwind CSS v4, `@tailwindcss/forms` |
+| 3D | Three.js, `@react-three/fiber` |
 | Icons | lucide-react |
 | Testing | Vitest, Testing Library |
 | Quality | ESLint, Prettier |
