@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame, type ThreeElements } from '@react-three/fiber';
 import * as THREE from 'three';
 
-// Brand accents from index.css — dashboard cyan + AI-signal purple.
+// Brand accents from index.css — dashboard cyan → indigo secondary.
 const COLOR_PRIMARY = new THREE.Color('#22d3ee');
-const COLOR_ACCENT = new THREE.Color('#8b5cf6');
+const COLOR_ACCENT = new THREE.Color('#818cf8');
 
 const PARTICLE_COUNT = 900;
 const RADIUS = 2.2;

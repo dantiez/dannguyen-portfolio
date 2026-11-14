@@ -9,8 +9,8 @@ import NumberTicker from './ui/number-ticker';
 
 /** Status colour tokens shared by the coverage bar, legend and row accents. */
 const STATUS_COLORS: Record<StatusKind, { bar: string; row: string; text: string }> = {
-  met: { bar: 'bg-gradient-to-r from-emerald-500 to-teal-400', row: 'border-l-emerald-500', text: 'text-emerald-500' },
-  inProgress: { bar: 'bg-gradient-to-r from-amber-500 to-orange-400', row: 'border-l-amber-500', text: 'text-amber-500' },
+  met: { bar: 'bg-emerald-500', row: 'border-l-emerald-500', text: 'text-emerald-500' },
+  inProgress: { bar: 'bg-amber-500', row: 'border-l-amber-500', text: 'text-amber-500' },
   planned: { bar: 'bg-slate-400/60 dark:bg-slate-600', row: 'border-l-slate-400 dark:border-l-slate-600', text: 'text-slate-400' },
 };
 
@@ -51,8 +51,8 @@ const TraceabilityMatrix: React.FC = () => {
 
   return (
     <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div aria-hidden="true" className="aurora-blob absolute top-24 -left-24 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div aria-hidden="true" className="aurora-blob absolute bottom-10 -right-24 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none [animation-delay:-9s]" />
+      <div aria-hidden="true" className="aurora-blob absolute top-24 -left-24 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+      <div aria-hidden="true" className="aurora-blob absolute bottom-10 -right-24 w-80 h-80 bg-accent-ai/10 rounded-full blur-3xl pointer-events-none [animation-delay:-9s]" />
       <SectionHeader
         index="02"
         eyebrow={tr.eyebrow}

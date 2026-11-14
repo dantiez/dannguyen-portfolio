@@ -13,7 +13,9 @@
   --color-on-primary: #ffffff;
 
   /* AI-signal accent — reserved for AI-Augmented sections, sparkle chips, hover */
-  --color-accent-ai: #8b5cf6;
+  /* Secondary accent (AI sections). Indigo sits next to cyan on the colour
+   * wheel, so cyan→indigo gradients stay harmonious. */
+  --color-accent-ai: #6366f1;
 
   /* Surfaces — GitHub-grade dark + warm-paper light */
   --color-background-light: #faf9f6;
@@ -62,6 +64,7 @@
   --color-primary: #22d3ee;
   --color-primary-hover: #67e8f9;
   --color-on-primary: #0a0f1c;
+  --color-accent-ai: #818cf8;
 }
 
 body {
@@ -102,7 +105,7 @@ h3 {
   background-image: radial-gradient(
     circle at center,
     rgba(34, 211, 238, 0.18),
-    rgba(139, 92, 246, 0.08) 40%,
+    rgba(129, 140, 248, 0.08) 40%,
     transparent 70%
   );
 }
@@ -139,6 +142,12 @@ h3 {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ------------------------------------------------------------------
+ * COLOUR RULE (keep the page cohesive):
+ *   decoration & interaction → cyan / sky / indigo only
+ *   emerald / amber / slate  → status meaning only (MET / IN PROGRESS / PLANNED)
+ * ------------------------------------------------------------------ */
 
 /* ------------------------------------------------------------------
  * Motion & colour effects (Magic UI–inspired, dependency-free).
@@ -213,8 +222,8 @@ h3 {
     from var(--beam-angle),
     transparent 0deg,
     #22d3ee 60deg,
-    #8b5cf6 120deg,
-    #10b981 180deg,
+    #38bdf8 120deg,
+    #818cf8 180deg,
     transparent 240deg
   );
   -webkit-mask:
@@ -227,7 +236,7 @@ h3 {
 
 /* Animated multi-stop gradient text (name, highlights) */
 .text-gradient-animated {
-  background-image: linear-gradient(90deg, #22d3ee, #8b5cf6, #10b981, #22d3ee);
+  background-image: linear-gradient(90deg, #22d3ee, #38bdf8, #818cf8, #22d3ee);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;

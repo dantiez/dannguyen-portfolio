@@ -26,8 +26,8 @@ const BOTTOM: { key: StageKey; status: StatusKind } = { key: 'implementation', s
 
 /** Status-coloured top border + hover glow for stage cards. */
 const STAGE_TOP: Record<StatusKind, string> = {
-  met: 'from-emerald-500 to-teal-400',
-  inProgress: 'from-amber-500 to-orange-400',
+  met: 'from-emerald-500 to-emerald-400',
+  inProgress: 'from-amber-500 to-amber-400',
   planned: 'from-slate-400 to-slate-500',
 };
 const STAGE_GLOW: Record<StatusKind, string> = {
@@ -72,11 +72,11 @@ const VModelRoadmap: React.FC = () => {
           <defs>
             <linearGradient id="vmodel-left" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#22d3ee" />
-              <stop offset="100%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="#818cf8" />
             </linearGradient>
             <linearGradient id="vmodel-right" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0%" stopColor="#8b5cf6" />
-              <stop offset="100%" stopColor="#10b981" />
+              <stop offset="0%" stopColor="#818cf8" />
+              <stop offset="100%" stopColor="#22d3ee" />
             </linearGradient>
           </defs>
           <path d="M 2 2 L 50 98" stroke="url(#vmodel-left)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" className="animate-dash-flow" opacity="0.9" />

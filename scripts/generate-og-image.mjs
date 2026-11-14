@@ -24,15 +24,15 @@ const svg = `
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0a0f1c"/>
-      <stop offset="1" stop-color="#161b22"/>
+      <stop offset="1" stop-color="#111827"/>
     </linearGradient>
     <radialGradient id="haloPrimary" cx="0.85" cy="0.15" r="0.5">
       <stop offset="0" stop-color="#22d3ee" stop-opacity="0.35"/>
       <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="haloAi" cx="0.15" cy="0.85" r="0.55">
-      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+      <stop offset="0" stop-color="#818cf8" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#818cf8" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
@@ -48,16 +48,16 @@ const svg = `
 
   <!-- Status pill -->
   <g transform="translate(80, 80)">
-    <rect width="220" height="40" rx="20" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6" stroke-opacity="0.4"/>
-    <circle cx="22" cy="20" r="5" fill="#a78bfa"/>
-    <text x="38" y="26" font-family="sans-serif" font-size="14" font-weight="700" fill="#a78bfa" letter-spacing="1">AI-AUGMENTED QA</text>
+    <rect width="220" height="40" rx="20" fill="#818cf8" fill-opacity="0.15" stroke="#818cf8" stroke-opacity="0.4"/>
+    <circle cx="22" cy="20" r="5" fill="#a5b4fc"/>
+    <text x="38" y="26" font-family="sans-serif" font-size="14" font-weight="700" fill="#a5b4fc" letter-spacing="1">AI-AUGMENTED QA</text>
   </g>
 
   <!-- Name -->
   <text x="80" y="290" font-family="sans-serif" font-size="80" font-weight="900" fill="#e6edf3" letter-spacing="-2">DAN NGUYEN TIEN</text>
 
   <!-- Role tag in mono style -->
-  <text x="80" y="360" font-family="monospace" font-size="36" font-weight="600" fill="#a78bfa">&lt;AI-Augmented QA Engineer/&gt;</text>
+  <text x="80" y="360" font-family="monospace" font-size="36" font-weight="600" fill="#a5b4fc">&lt;AI-Augmented QA Engineer/&gt;</text>
 
   <!-- Subtitle -->
   <text x="80" y="420" font-family="sans-serif" font-size="26" fill="#7d8590">Requirements-based Testing · Automotive Embedded (learning)</text>
@@ -76,7 +76,7 @@ const svg = `
   <!-- Right side: code-tag halo accent -->
   <g transform="translate(880, 200)" opacity="0.8">
     <rect width="240" height="240" rx="120" fill="none" stroke="#22d3ee" stroke-opacity="0.3" stroke-width="2"/>
-    <rect x="40" y="40" width="160" height="160" rx="80" fill="none" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="2"/>
+    <rect x="40" y="40" width="160" height="160" rx="80" fill="none" stroke="#818cf8" stroke-opacity="0.4" stroke-width="2"/>
     <text x="120" y="135" font-family="monospace" font-size="48" font-weight="700" fill="#e6edf3" text-anchor="middle">QA</text>
   </g>
 </svg>
