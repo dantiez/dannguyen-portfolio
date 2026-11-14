@@ -75,7 +75,7 @@ const LocaleSwitcher: React.FC = () => {
 
   return (
     <div ref={containerRef} className="relative">
-      <Tooltip label={t.a11y.switchLocale} side="bottom">
+      <Tooltip label={t.a11y.switchLocale} side="bottom" disabled={open}>
         <button
           ref={triggerRef}
           type="button"
