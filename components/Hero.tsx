@@ -101,7 +101,7 @@ const Hero: React.FC = () => {
                     .getElementById('careertimeline')
                     ?.scrollIntoView({ behavior: 'smooth' })
                 }
-                className="group flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 text-white h-12 px-8 rounded-lg text-base font-bold transition-all shadow-lg shadow-primary/25 active:scale-95"
+                className="group flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-on-primary h-12 px-8 rounded-lg text-base font-bold transition-all shadow-lg shadow-primary/25 active:scale-95"
               >
                 <span>{hero.ctaPrimary}</span>
                 <ArrowRight

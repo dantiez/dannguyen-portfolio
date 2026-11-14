@@ -124,7 +124,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, items, activeI
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="mt-4 flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-base font-bold transition-colors shadow-md shadow-primary/20"
+            className="mt-4 flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-on-primary px-4 py-3 rounded-lg text-base font-bold transition-colors shadow-md shadow-primary/20"
           >
             <FileText size={18} aria-hidden="true" />
             {t.nav.downloadCv}

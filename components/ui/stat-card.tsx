@@ -14,7 +14,7 @@ interface StatCardProps {
 }
 
 const ACCENTS: Record<StatAccent, { icon: string; glow: string; text: string }> = {
-  blue: { icon: 'bg-blue-500/10 text-blue-500', glow: 'group-hover:shadow-blue-500/20 hover:border-blue-500/50', text: 'from-blue-400 to-cyan-400' },
+  blue: { icon: 'bg-cyan-500/10 text-cyan-500 dark:text-cyan-400', glow: 'group-hover:shadow-cyan-500/20 hover:border-cyan-500/50', text: 'from-cyan-500 to-sky-400 dark:from-cyan-300' },
   violet: { icon: 'bg-violet-500/10 text-violet-500', glow: 'group-hover:shadow-violet-500/20 hover:border-violet-500/50', text: 'from-violet-400 to-fuchsia-400' },
   emerald: { icon: 'bg-emerald-500/10 text-emerald-500', glow: 'group-hover:shadow-emerald-500/20 hover:border-emerald-500/50', text: 'from-emerald-400 to-teal-400' },
 };

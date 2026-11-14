@@ -79,7 +79,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ Icon, accent, title, desc, tags }
   const isAi = accent === 'ai';
   const iconWrapClasses = isAi
     ? 'bg-accent-ai/10 text-accent-ai group-hover:bg-accent-ai group-hover:text-white'
-    : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white';
+    : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-on-primary';
   const borderHover = isAi ? 'hover:border-accent-ai/50' : 'hover:border-primary/50';
 
   return (

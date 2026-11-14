@@ -71,7 +71,7 @@ const VModelRoadmap: React.FC = () => {
         >
           <defs>
             <linearGradient id="vmodel-left" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#3b82f6" />
+              <stop offset="0%" stopColor="#22d3ee" />
               <stop offset="100%" stopColor="#8b5cf6" />
             </linearGradient>
             <linearGradient id="vmodel-right" x1="0" y1="1" x2="1" y2="0">

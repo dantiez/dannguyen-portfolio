@@ -23,12 +23,12 @@ const svg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="0" stop-color="#0a0f1c"/>
       <stop offset="1" stop-color="#161b22"/>
     </linearGradient>
     <radialGradient id="haloPrimary" cx="0.85" cy="0.15" r="0.5">
-      <stop offset="0" stop-color="#3b82f6" stop-opacity="0.35"/>
-      <stop offset="1" stop-color="#3b82f6" stop-opacity="0"/>
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="haloAi" cx="0.15" cy="0.85" r="0.55">
       <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.30"/>
@@ -41,7 +41,7 @@ const svg = `
   <rect width="1200" height="630" fill="url(#haloAi)"/>
 
   <!-- Subtle grid -->
-  <g stroke="#3b82f6" stroke-opacity="0.04">
+  <g stroke="#22d3ee" stroke-opacity="0.04">
     ${Array.from({ length: 21 }, (_, i) => `<line x1="${i * 60}" y1="0" x2="${i * 60}" y2="630"/>`).join('')}
     ${Array.from({ length: 11 }, (_, i) => `<line x1="0" y1="${i * 60}" x2="1200" y2="${i * 60}"/>`).join('')}
   </g>
@@ -60,22 +60,22 @@ const svg = `
   <text x="80" y="360" font-family="monospace" font-size="36" font-weight="600" fill="#a78bfa">&lt;AI-Augmented QA Engineer/&gt;</text>
 
   <!-- Subtitle -->
-  <text x="80" y="420" font-family="sans-serif" font-size="26" fill="#7d8590">Productivity-First Testing · LLM-Powered Workflow</text>
+  <text x="80" y="420" font-family="sans-serif" font-size="26" fill="#7d8590">Requirements-based Testing · Automotive Embedded (learning)</text>
 
   <!-- Bottom row: URL + accent dot -->
   <g transform="translate(80, 530)">
-    <circle cx="8" cy="8" r="6" fill="#3b82f6"/>
+    <circle cx="8" cy="8" r="6" fill="#22d3ee"/>
     <text x="28" y="14" font-family="sans-serif" font-size="22" fill="#e6edf3" font-weight="500">dantiez-portfolio.vercel.app</text>
   </g>
 
   <!-- Tools chip row -->
   <g transform="translate(80, 580)">
-    <text x="0" y="0" font-family="monospace" font-size="16" fill="#7d8590">Claude  ·  Copilot  ·  Playwright  ·  Selenium  ·  Postman</text>
+    <text x="0" y="0" font-family="monospace" font-size="16" fill="#7d8590">V-model  ·  C/C++  ·  Python  ·  CAN  ·  Playwright  ·  Claude</text>
   </g>
 
   <!-- Right side: code-tag halo accent -->
   <g transform="translate(880, 200)" opacity="0.8">
-    <rect width="240" height="240" rx="120" fill="none" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="2"/>
+    <rect width="240" height="240" rx="120" fill="none" stroke="#22d3ee" stroke-opacity="0.3" stroke-width="2"/>
     <rect x="40" y="40" width="160" height="160" rx="80" fill="none" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="2"/>
     <text x="120" y="135" font-family="monospace" font-size="48" font-weight="700" fill="#e6edf3" text-anchor="middle">QA</text>
   </g>

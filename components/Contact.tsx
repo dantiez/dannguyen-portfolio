@@ -69,7 +69,7 @@ const Contact: React.FC = () => {
         className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none"
       >
         <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl opacity-50" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-3xl opacity-30" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-3xl opacity-30" />
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
@@ -143,7 +143,7 @@ const Contact: React.FC = () => {
         <div className="w-full bg-white dark:bg-background-dark rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 relative overflow-hidden h-fit">
           <div
             aria-hidden="true"
-            className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-blue-400 to-primary"
+            className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent-ai to-primary"
           />
           <form className="flex flex-col gap-6" onSubmit={onSubmit} noValidate>
             {/* Honeypot — humans never see it; bots fill any visible input */}
@@ -259,7 +259,7 @@ const Contact: React.FC = () => {
                 // mailto link so the recruiter still has a 1-click action.
                 <a
                   href={`mailto:${SOCIAL.email}`}
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 active:bg-blue-700 text-white font-semibold h-12 px-8 rounded-lg transition-colors duration-200"
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover active:bg-primary-hover text-on-primary font-semibold h-12 px-8 rounded-lg transition-colors duration-200"
                 >
                   <Mail size={18} aria-hidden="true" />
                   <span>{f.emailMeDirectly}</span>
@@ -269,7 +269,7 @@ const Contact: React.FC = () => {
                   type="submit"
                   disabled={isSending}
                   aria-busy={isSending}
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 active:bg-blue-700 disabled:bg-slate-400 disabled:shadow-none disabled:cursor-not-allowed text-white font-semibold h-12 px-8 rounded-lg transition-all duration-200 shadow-md shadow-primary/15 hover:shadow-primary/30"
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover active:bg-primary-hover disabled:bg-slate-400 disabled:shadow-none disabled:cursor-not-allowed text-on-primary font-semibold h-12 px-8 rounded-lg transition-all duration-200 shadow-md shadow-primary/15 hover:shadow-primary/30"
                 >
                   {isSending ? (
                     <>
@@ -422,7 +422,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ Icon, title, subtitle, href }) => (
     rel="noopener noreferrer"
     className="group flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all"
   >
-    <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:bg-primary group-hover:text-white transition-colors">
+    <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:bg-primary group-hover:text-on-primary transition-colors">
       <Icon size={20} aria-hidden="true" />
     </div>
     <div className="flex flex-col flex-1">

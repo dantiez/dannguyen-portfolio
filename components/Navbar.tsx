@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
                 aria-label={t.a11y.scrollToTop}
               >
                 <div className="bg-primary/10 dark:bg-primary/20 p-1.5 rounded-lg text-primary">
-                  <BugIcon />
+                  <ChipCheckIcon />
                 </div>
                 <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white hidden sm:block">
                   DAN NGUYEN TIEN
@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/25 active:scale-95"
+                className="bg-primary hover:bg-primary-hover text-on-primary px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/25 active:scale-95"
               >
                 {t.nav.downloadCv}
               </a>
@@ -115,7 +115,8 @@ const Navbar: React.FC = () => {
   );
 };
 
-const BugIcon: React.FC = () => (
+/** Logo: microcontroller with a check mark — "verified embedded software". */
+const ChipCheckIcon: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
@@ -128,7 +129,9 @@ const BugIcon: React.FC = () => (
     strokeLinejoin="round"
     aria-hidden="true"
   >
-    <path d="m8 2 1.88 1.88M14.12 3.88 16 2M9 7.13v-1a3.003 3.003 0 1 1 6 0v1M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6M12 20v-9M6.53 9C4.6 8.8 3 7.1 3 5M6 13H2M3 21c0-2.1 1.7-3.9 3.8-4M20.97 5c0 2.1-1.6 3.8-3.5 4M22 13h-4M17.2 17c2.1.1 3.8 1.9 3.8 4" />
+    <rect x="6" y="6" width="12" height="12" rx="2" />
+    <path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" />
+    <path d="m9.5 12 1.75 1.75L14.75 10.25" />
   </svg>
 );
 
