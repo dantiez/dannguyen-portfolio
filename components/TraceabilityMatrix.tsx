@@ -97,7 +97,7 @@ const TraceabilityMatrix: React.FC = () => {
       </RevealOnScroll>
 
       <RevealOnScroll delay={100}>
-        <div className="border-beam rounded-xl">
+        <div className="border-beam relative rounded-xl">
         <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-dark shadow-xl shadow-primary/5">
           {/* Desktop table */}
           <table className="hidden md:table w-full text-left text-sm">
