@@ -18,13 +18,18 @@ const Hero: React.FC = () => {
   return (
     <div className="relative overflow-hidden pt-14 pb-24 lg:pt-24 lg:pb-32">
       {/* Background decor: dual soft halos hinting at primary + AI accent */}
+      <div aria-hidden="true" className="grid-fade absolute inset-0 pointer-events-none" />
       <div
         aria-hidden="true"
-        className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"
+        className="aurora-blob absolute top-0 right-0 -mr-20 -mt-20 w-[28rem] h-[28rem] bg-primary/20 rounded-full blur-3xl pointer-events-none"
       />
       <div
         aria-hidden="true"
-        className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-accent-ai/10 rounded-full blur-3xl pointer-events-none"
+        className="aurora-blob absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-accent-ai/20 rounded-full blur-3xl pointer-events-none [animation-delay:-6s]"
+      />
+      <div
+        aria-hidden="true"
+        className="aurora-blob absolute top-1/3 left-1/2 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none [animation-delay:-12s]"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -40,7 +45,7 @@ const Hero: React.FC = () => {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-slate-900 dark:text-white">
-              DAN NGUYEN TIEN
+              DAN <span className="text-gradient-animated">NGUYEN TIEN</span>
             </h1>
 
             <h2 className="text-base sm:text-xl md:text-2xl font-medium text-slate-500 dark:text-slate-400 flex flex-col md:flex-row items-center lg:items-start gap-2 justify-center lg:justify-start">
@@ -112,7 +117,7 @@ const Hero: React.FC = () => {
                 className="hero-halo absolute inset-0 rounded-full blur-2xl"
               />
 
-              <div className="absolute inset-0 m-auto w-60 h-60 md:w-80 md:h-80 rounded-full p-[3px] bg-gradient-to-br from-primary/40 via-accent-ai/30 to-transparent z-10">
+              <div className="border-beam absolute inset-0 m-auto w-60 h-60 md:w-80 md:h-80 rounded-full p-[3px] bg-gradient-to-br from-primary/40 via-accent-ai/30 to-transparent z-10">
                 <div className="w-full h-full rounded-full overflow-hidden bg-slate-900">
                   <picture>
                     <source

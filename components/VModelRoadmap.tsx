@@ -24,6 +24,18 @@ const LEVELS: Array<{
 ];
 const BOTTOM: { key: StageKey; status: StatusKind } = { key: 'implementation', status: 'inProgress' };
 
+/** Status-coloured top border + hover glow for stage cards. */
+const STAGE_TOP: Record<StatusKind, string> = {
+  met: 'from-emerald-500 to-teal-400',
+  inProgress: 'from-amber-500 to-orange-400',
+  planned: 'from-slate-400 to-slate-500',
+};
+const STAGE_GLOW: Record<StatusKind, string> = {
+  met: 'hover:shadow-emerald-500/15',
+  inProgress: 'hover:shadow-amber-500/15',
+  planned: 'hover:shadow-slate-500/10',
+};
+
 // Horizontal inset per level (in rem) so the cards visually form a "V" on desktop.
 const INSETS = ['md:mx-0', 'md:mx-8', 'md:mx-16', 'md:mx-24'];
 
@@ -32,8 +44,10 @@ const VModelRoadmap: React.FC = () => {
   const vm = t.vModel;
 
   return (
-    <div className="w-full bg-slate-50 dark:bg-background-dark py-20 border-y border-slate-200 dark:border-slate-800">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative overflow-hidden w-full bg-slate-50 dark:bg-background-dark py-20 border-y border-slate-200 dark:border-slate-800">
+      <div aria-hidden="true" className="grid-fade absolute inset-0 pointer-events-none" />
+      <div aria-hidden="true" className="aurora-blob absolute -top-20 right-1/4 w-96 h-96 bg-accent-ai/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           index="03"
           eyebrow={vm.eyebrow}
@@ -47,7 +61,28 @@ const VModelRoadmap: React.FC = () => {
           <span className="text-right">{vm.rightArm}</span>
         </div>
 
-        <ol className="flex flex-col gap-3">
+        <div className="relative">
+        {/* Animated "V" guide lines behind the cards (desktop only) */}
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden h-full w-full md:block"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="vmodel-left" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#3b82f6" />
+              <stop offset="100%" stopColor="#8b5cf6" />
+            </linearGradient>
+            <linearGradient id="vmodel-right" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="#10b981" />
+            </linearGradient>
+          </defs>
+          <path d="M 2 2 L 50 98" stroke="url(#vmodel-left)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" className="animate-dash-flow" opacity="0.9" />
+          <path d="M 50 98 L 98 2" stroke="url(#vmodel-right)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" className="animate-dash-flow" opacity="0.9" />
+        </svg>
+        <ol className="relative flex flex-col gap-3">
           {LEVELS.map((level, i) => (
             <li key={level.left.key}>
               <RevealOnScroll delay={i * 80}>
@@ -66,6 +101,7 @@ const VModelRoadmap: React.FC = () => {
             </RevealOnScroll>
           </li>
         </ol>
+        </div>
 
         <p className="mt-6 text-center font-mono text-xs text-slate-500">{vm.footnote}</p>
       </div>
@@ -83,10 +119,12 @@ const StageCard: React.FC<StageCardProps> = ({ stage, vm, alignRight }) => {
   const copy = vm.stages[stage.key];
   return (
     <div
-      className={`flex flex-col gap-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-dark p-4 ${
+      className={`group relative overflow-hidden flex flex-col gap-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-surface-dark/90 backdrop-blur p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${STAGE_GLOW[stage.status]} ${
         alignRight ? 'md:items-end md:text-right' : ''
       }`}
     >
+      {/* Status-coloured accent bar */}
+      <span aria-hidden="true" className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${STAGE_TOP[stage.status]}`} />
       <div className={`flex w-full items-center justify-between gap-3 ${alignRight ? 'md:flex-row-reverse' : ''}`}>
         <h3 className="font-semibold text-slate-900 dark:text-white">{copy.title}</h3>
         <StatusBadge kind={stage.status} label={vm.status[stage.status]} />

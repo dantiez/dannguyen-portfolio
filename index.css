@@ -118,3 +118,122 @@ body {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ------------------------------------------------------------------
+ * Motion & colour effects (Magic UI–inspired, dependency-free).
+ * All animations collapse under the prefers-reduced-motion rule above.
+ * ------------------------------------------------------------------ */
+
+/* Animatable angle for the conic border beam */
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes beam-spin {
+  to {
+    --beam-angle: 360deg;
+  }
+}
+
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6%, -4%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-5%, 5%, 0) scale(0.95);
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+@keyframes bar-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Rotating gradient border. Wrap content in an element with this class. */
+.border-beam {
+  position: relative;
+  isolation: isolate;
+}
+.border-beam::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--beam-angle),
+    transparent 0deg,
+    #3b82f6 60deg,
+    #8b5cf6 120deg,
+    #10b981 180deg,
+    transparent 240deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: beam-spin 6s linear infinite;
+}
+
+/* Animated multi-stop gradient text (name, highlights) */
+.text-gradient-animated {
+  background-image: linear-gradient(90deg, #3b82f6, #8b5cf6, #10b981, #3b82f6);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-pan 8s ease-in-out infinite;
+}
+
+/* Soft drifting colour blobs behind sections */
+.aurora-blob {
+  animation: aurora-drift 18s ease-in-out infinite;
+}
+
+/* Engineering grid that fades toward the edges */
+.grid-fade {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 6 14;
+  animation: dash-flow 1.6s linear infinite;
+}
+
+.animate-bar-grow {
+  transform-origin: left;
+  animation: bar-grow 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

@@ -5,6 +5,14 @@ import type { Dictionary } from '../lib/i18n/dictionaries/en';
 import SectionHeader from './ui/section-header';
 import StatusBadge, { type StatusKind } from './ui/status-badge';
 import RevealOnScroll from './ui/reveal-on-scroll';
+import NumberTicker from './ui/number-ticker';
+
+/** Status colour tokens shared by the coverage bar, legend and row accents. */
+const STATUS_COLORS: Record<StatusKind, { bar: string; row: string; text: string }> = {
+  met: { bar: 'bg-gradient-to-r from-emerald-500 to-teal-400', row: 'border-l-emerald-500', text: 'text-emerald-500' },
+  inProgress: { bar: 'bg-gradient-to-r from-amber-500 to-orange-400', row: 'border-l-amber-500', text: 'text-amber-500' },
+  planned: { bar: 'bg-slate-400/60 dark:bg-slate-600', row: 'border-l-slate-400 dark:border-l-slate-600', text: 'text-slate-400' },
+};
 
 type RowKey = keyof Dictionary['traceability']['rows'];
 
@@ -42,7 +50,9 @@ const TraceabilityMatrix: React.FC = () => {
   );
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div aria-hidden="true" className="aurora-blob absolute top-24 -left-24 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div aria-hidden="true" className="aurora-blob absolute bottom-10 -right-24 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none [animation-delay:-9s]" />
       <SectionHeader
         index="02"
         eyebrow={tr.eyebrow}
@@ -52,17 +62,43 @@ const TraceabilityMatrix: React.FC = () => {
       />
 
       {/* Summary line — reads like a test-run footer */}
+      {/* Run summary: big counters + stacked coverage bar, like a CI dashboard */}
       <RevealOnScroll>
-        <div className="mb-4 flex flex-wrap items-center gap-3 font-mono text-xs text-slate-500 dark:text-slate-400">
-          <span>{tr.summaryLabel}</span>
-          <StatusBadge kind="met" label={`${tr.status.met} ${counts.met}`} />
-          <StatusBadge kind="inProgress" label={`${tr.status.inProgress} ${counts.inProgress}`} />
-          <StatusBadge kind="planned" label={`${tr.status.planned} ${counts.planned}`} />
+        <div className="mb-6 grid grid-cols-3 gap-3">
+          {(['met', 'inProgress', 'planned'] as const).map((kind) => (
+            <div
+              key={kind}
+              className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-surface-dark/70 backdrop-blur p-4"
+            >
+              <p className={`text-3xl font-bold ${STATUS_COLORS[kind].text}`}>
+                <NumberTicker value={counts[kind]} />
+                <span className="text-base font-medium text-slate-400">/{ROWS.length}</span>
+              </p>
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-slate-500">{tr.status[kind]}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mb-6">
+          <div className="mb-2 font-mono text-xs text-slate-500 dark:text-slate-400">{tr.summaryLabel}</div>
+          <div
+            className="flex h-2.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800"
+            role="img"
+            aria-label={`${tr.status.met} ${counts.met}, ${tr.status.inProgress} ${counts.inProgress}, ${tr.status.planned} ${counts.planned}`}
+          >
+            {(['met', 'inProgress', 'planned'] as const).map((kind, i) => (
+              <div
+                key={kind}
+                className={`animate-bar-grow ${STATUS_COLORS[kind].bar}`}
+                style={{ width: `${(counts[kind] / ROWS.length) * 100}%`, animationDelay: `${i * 250}ms` }}
+              />
+            ))}
+          </div>
         </div>
       </RevealOnScroll>
 
       <RevealOnScroll delay={100}>
-        <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-dark">
+        <div className="border-beam rounded-xl">
+        <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-dark shadow-xl shadow-primary/5">
           {/* Desktop table */}
           <table className="hidden md:table w-full text-left text-sm">
             <caption className="sr-only">{tr.title}</caption>
@@ -78,7 +114,10 @@ const TraceabilityMatrix: React.FC = () => {
               {ROWS.map((row, i) => {
                 const copy = tr.rows[row.key];
                 return (
-                  <tr key={row.key} className="hover:bg-slate-50/70 dark:hover:bg-card-dark/40 transition-colors">
+                  <tr
+                    key={row.key}
+                    className={`border-l-2 ${STATUS_COLORS[row.status].row} hover:bg-gradient-to-r hover:from-primary/5 hover:to-transparent transition-colors`}
+                  >
                     <td className="px-4 py-3 font-mono text-xs text-slate-400">
                       REQ-{String(i + 1).padStart(2, '0')}
                     </td>
@@ -98,7 +137,7 @@ const TraceabilityMatrix: React.FC = () => {
             {ROWS.map((row, i) => {
               const copy = tr.rows[row.key];
               return (
-                <li key={row.key} className="flex flex-col gap-1.5 p-4">
+                <li key={row.key} className={`flex flex-col gap-1.5 p-4 border-l-2 ${STATUS_COLORS[row.status].row}`}>
                   <div className="flex items-center justify-between gap-3">
                     <span className="font-mono text-xs text-slate-400">
                       REQ-{String(i + 1).padStart(2, '0')}
@@ -111,6 +150,7 @@ const TraceabilityMatrix: React.FC = () => {
               );
             })}
           </ul>
+        </div>
         </div>
       </RevealOnScroll>
 
