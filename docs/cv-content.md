@@ -15,7 +15,7 @@
 
 tiendannguyen224@gmail.com  ·  +84 907 281 361  
 LinkedIn: linkedin.com/in/dan-nguyen-tien-a24244302  ·  GitHub: github.com/dantiez  
-Portfolio: dannguyen-portfolio.vercel.app
+Portfolio: dantiez-portfolio.vercel.app
 
 ---
 
