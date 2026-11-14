@@ -40,7 +40,7 @@ const vi: Dictionary = {
   hero: {
     welcomeChip: 'Chào mừng đến portfolio của tôi',
     role: '<AI-Augmented QA Engineer/>',
-    specialty: 'Kiểm thử dựa trên Requirement · Tích hợp AI · Embedded Automotive (đang học)',
+    specialty: 'Kiểm thử dựa trên Requirement · Embedded Automotive (đang học)',
     bio: 'Kỹ sư QA AI-Augmented với hơn 2 năm kinh nghiệm kiểm thử hệ thống microservice. Kết hợp nền tảng QA truyền thống — phân tích yêu cầu, thiết kế test case, kiểm thử API với Postman/Mockoon, kiểm tra database (MySQL/PostgreSQL), performance baseline với JMeter — cùng quy trình AI-augmented hiện đại sử dụng Claude và Copilot để tăng tốc viết test case, phân tích log và nâng chất lượng báo cáo bug. Hiện đang mở rộng kỹ năng sang Playwright thông qua các phiên học cặp đôi AI với Claude Code, đồng thời theo lộ trình tự học kiểm thử embedded automotive (C/C++, Simulink, CANoe, MiL/SiL/HiL).',
     ctaPrimary: 'Xem sự nghiệp',
     ctaSecondary: 'Liên hệ ngay',

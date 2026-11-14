@@ -42,7 +42,7 @@ const en = {
   hero: {
     welcomeChip: 'Welcome to my portfolio',
     role: '<AI-Augmented QA Engineer/>',
-    specialty: 'Requirements-based Testing · AI-Augmented · Automotive Embedded (learning)',
+    specialty: 'Requirements-based Testing · Automotive Embedded (learning)',
     bio: 'AI-Augmented QA Engineer with 2+ years testing microservice-based systems. Combine traditional QA rigor — requirement analysis, test case design, API verification with Postman/Mockoon, database checks (MySQL/PostgreSQL), and JMeter performance baselines — with a modern AI-augmented workflow using Claude and Copilot to accelerate test authoring, log triage, and bug-report quality. Currently expanding into Playwright via AI-paired learning sessions with Claude Code, and following a self-study roadmap into automotive embedded testing (C/C++, Simulink, CANoe, MiL/SiL/HiL).',
     ctaPrimary: 'View Career',
     ctaSecondary: 'Get in Touch',

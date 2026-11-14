@@ -43,7 +43,7 @@ const ja: Dictionary = {
   hero: {
     welcomeChip: 'ポートフォリオへようこそ',
     role: '<AI-Augmented QA Engineer/>',
-    specialty: '要件ベーステスト · AI活用 · 車載組込み (学習中)',
+    specialty: '要件ベーステスト · 車載組込み (学習中)',
     bio: 'マイクロサービスベースのシステムにおける手動テストで2年以上の経験を持つ AI 活用型 QA エンジニアです。要件分析、テストケース設計、Postman・Mockoon による API テスト、MySQL・PostgreSQL でのデータベース検証、JMeter による基本的なパフォーマンステストといった従来の QA 手法に加え、Claude や Copilot を活用した最新の AI ワークフローで、テスト作成、ログトリアージ、バグレポート品質の向上を実現しております。現在は Claude Code との AI ペアプログラミングセッションを通じて Playwright スキルを拡張中であり、車載組込みテスト (C/C++、Simulink、CANoe、MiL/SiL/HiL) の自主学習ロードマップにも取り組んでいます。',
     ctaPrimary: '経歴を見る',
     ctaSecondary: 'お問い合わせ',
